@@ -1,0 +1,45 @@
+.JobsSearch {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  flex-grow: 1;
+  background: linear-gradient(90deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+}
+
+
+.title {
+  color: #fff;
+  text-align: center;
+}
+
+.pagination {
+  color: #fff;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.job {
+    justify-content: space-between;
+    margin: 0 auto;
+    margin: 20px 0;
+    padding: 20px 10px;
+    align-items: center;
+  }
+  
+  .detail-logo {
+    height: 30px;
+    float: right;
+  }
+  
+  .job:hover {
+    cursor: pointer;
+    color: darkgray;
+  }
+  
+  .job-company {
+    padding: 0 30px;
+  }
+  
+  .job-dialog {
+    padding: 30px 50px;
+  }

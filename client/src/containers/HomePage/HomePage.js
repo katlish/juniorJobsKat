@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./HomePage.css";
+import AppLifecycleDemo from '../../components/AppLifecycleDemo/AppLifecycleDemo'
 
 class HomePage extends React.Component {
     render() {
@@ -8,6 +9,9 @@ class HomePage extends React.Component {
             <h1 className={classes.title}>
               Main Page
             </h1>
+            <div className={classes.lifecycle}>
+              <AppLifecycleDemo/>
+            </div>
           </div>
         );
       }

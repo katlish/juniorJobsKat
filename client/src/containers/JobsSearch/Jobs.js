@@ -9,7 +9,7 @@ import classes from "./JobsSearch.css";
 import Job from './Job'
 import JobModal from './JobModal'
 
-const NUM_OF_JOBS_ON_PAGE = 10
+const NUM_OF_JOBS_ON_PAGE = 20
 
 export default function Jobs({jobs}) {
     const numJobs = jobs.length

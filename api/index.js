@@ -1,10 +1,11 @@
 const express = require('express')
+const redis = require('redis')
+const { promisify } = require('util')
+
 const app = express()
 const port = 3001
-const redis = require("redis");
-client = redis.createClient();
+const client = redis.createClient();
 
-const { promisify } = require("util");
 const getAsync = promisify(client.get).bind(client);
 
 

@@ -1,4 +1,4 @@
-import axios from "../../axios/axios-quiz";
+import axios from "../../axios/axios-project-db";
 import { AUTH_SUCCESS, AUTH_LOGOUT } from "./actionTypes";
 
 export function auth(email, password, isLogin) {

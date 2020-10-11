@@ -10,6 +10,9 @@ import Logout from "./components/Logout/Logout";
 import { autoLogin } from "./store/actions/auth";
 import JobsSearch from "./containers/JobsSearch/JobsSearch";
 import HomePage from "./containers/HomePage/HomePage";
+import CandidateCreator from "./containers/CandidateCreator/CandidateCreator";
+import CandidatesList from "./containers/CandidatesList/CandidatesList";
+
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +26,7 @@ class App extends Component {
         <Route path="/quiz/:id" component={Quiz} />
         <Route path="/jobsSearch" component={JobsSearch} />
         <Route path="/quizList" component={QuizList} />
+        <Route path="/candidatesList" component={CandidatesList} />
         <Route path="/" exact component={HomePage} />
         <Redirect to="/" />
       </Switch>
@@ -32,10 +36,12 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/quiz-creator" component={QuizCreator} />
+          <Route path="/candidate-creator" component={CandidateCreator} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
           <Route path="/jobsSearch" component={JobsSearch} />
           <Route path="/quizList" component={QuizList} />
+          <Route path="/candidatesList" component={CandidatesList} />
           <Route path="/" exact component={HomePage} />
           <Redirect to="/" />
         </Switch>

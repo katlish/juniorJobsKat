@@ -1,26 +1,11 @@
-.JobsSearch {
+.CandidatesList {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items:center;
   padding-top: 100px;
   flex-grow: 1;
   background: linear-gradient(90deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
 }
 
-.selectCountryList {
-  order: 1;
-  padding-bottom: 50px;
-}
-
-.remoteJobs {
-  order: 2;
-  padding-bottom: 50px;
-}
-
-.searchResult {
-  order: 3;
-}
 
 .title {
   color: #fff;
@@ -33,7 +18,7 @@
   margin: 40px 0;
 }
 
-.job {
+.candidate {
     justify-content: space-between;
     margin: 0 auto;
     margin: 20px 0;
@@ -46,15 +31,8 @@
     float: right;
   }
   
-  .job:hover {
+  .candidate:hover {
     cursor: pointer;
     color: darkgray;
   }
   
-  .job-company {
-    padding: 0 30px;
-  }
-  
-  .job-dialog {
-    padding: 30px 50px;
-  }

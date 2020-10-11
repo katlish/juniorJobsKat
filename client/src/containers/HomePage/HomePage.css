@@ -1,6 +1,8 @@
 .HomePage {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items:center;
     padding-top: 100px;
     flex-grow: 1;
     background: linear-gradient(300deg, #17c511 0%, #1ee2e2 0%, #caec07 100%);
@@ -10,4 +12,9 @@
   .title {
     color: #fff;
     text-align: center;
+  }
+
+  .lifecycle {
+    padding: 20px 10px;
+    align-items: center;
   }

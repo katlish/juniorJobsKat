@@ -1,0 +1,26 @@
+.CandidateCreator {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    flex-grow: 1;
+    width: 100%;
+    background: linear-gradient(270deg, #dbee34 0%, #f79cbd 100%);
+  }
+  
+  .CandidateCreator > div {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+  
+  .CandidateCreator h1 {
+    text-align: center;
+  }
+  
+  .CandidateCreator form {
+    background: #eee;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px rgbs(0, 0, 0, 0.5);
+  }
+  

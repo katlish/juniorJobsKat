@@ -13,9 +13,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
   
-export default function JobModal({job, open, handleClose}) {
+export default function CandidateModal({candidate, open, handleClose}) {
     
-    if (!job.title) {
+    if (!candidate.name) {
         return <div/>
     }
   
@@ -30,26 +30,20 @@ export default function JobModal({job, open, handleClose}) {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title">
-            {job.title} - 
-            {job.company}
-            <img className={'detail-logo'} src={job.company_logo} alt=""/>
+            {candidate.name} - 
+            {candidate.yearsOfExperience}
           </DialogTitle>
           <DialogContent>
             <DialogContentText 
                 id="alert-dialog-slide-description"
-                dangerouslySetInnerHTML={{__html: job.description}}
+                dangerouslySetInnerHTML={{__html: candidate.jobs}}
             />
-            <Map address={job.location} />
+            <Map address={candidate.location} />
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="primary">
               Close
             </Button>
-            <a href={job.url} target="_blank" rel="noopener noreferrer">
-                <Button color="primary">
-                Apply
-                </Button>
-            </a>
           </DialogActions>
         </Dialog>
       </div>

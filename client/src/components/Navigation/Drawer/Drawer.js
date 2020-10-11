@@ -40,10 +40,12 @@ class Drawer extends React.Component {
         to: "/quiz-creator",
         label: "Create Your Quiz",
         exact: false
-      });
-      links.push(
-                  { to: "/quizList", label: "Quizes List", exact: false },
-                  { to: "/logout", label: "Logout", exact: false });
+      },
+      { to: "/candidate-creator", label: "Add Your Candidate", exact: false },
+      { to: "/quizList", label: "Quizes List", exact: false },
+      { to: "/candidatesList", label: "Candidates List", exact: false },
+      { to: "/logout", label: "Logout", exact: false }
+      );
     } else {
       links.push({ to: "/auth", label: "Authorization", exact: false });
     }

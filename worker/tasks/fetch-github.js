@@ -30,14 +30,15 @@ async function fetchGithub() {
         if (title.includes('senior') || 
             title.includes('manager') ||
             title.includes('sr.') ||
-            title.includes('architect')) {
+            title.includes('architect') ||
+            title.includes('devops')) {
             return false
         } 
         return true
     })
     console.log('filtered down to - ', juniorJobs.length)
 
-    const success = await setAsync('github', JSON.stringify(allJobs))
+    const success = await setAsync('github', JSON.stringify(juniorJobs))
     console.log({success})
 }
 

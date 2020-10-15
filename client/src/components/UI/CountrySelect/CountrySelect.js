@@ -2,7 +2,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles } from '@material-ui/core/styles';
+import classes from './CountrySelect.css'
 
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
@@ -21,30 +22,44 @@ const useStyles = makeStyles({
       marginRight: 10,
       fontSize: 18,
     },
-  },
+    background: "#272727",
+    color: "rgba(255,255,255,0.87)"
+  }
 });
 
+const CssTextField = withStyles({
+  root: {
+   
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '1 solid rgba(255,255,255,0.38)',
+      }
+      
+    },
+  },
+})(TextField);
+
 export default function CountrySelect(props) {
-  const classes = useStyles();
+  const classesOrigin = useStyles();
 
   return (
     <Autocomplete
       id="country-select-demo"
-      style={{ width: 300 }}
+      style={{ width: "100%" }}
       options={countries}
       classes={{
-        option: classes.option,
+        option: classesOrigin.option
       }}
       autoHighlight
       getOptionLabel={(option) => option.label}
       renderOption={(option) => (
-        <React.Fragment>
+        <React.Fragment >
           <span>{countryToFlag(option.code)}</span>
           {option.label} ({option.code}) +{option.phone}
         </React.Fragment>
       )}
       renderInput={(params) => (
-        <TextField
+        <CssTextField
           {...params}
           label="Choose a country"
           variant="outlined"
@@ -54,7 +69,7 @@ export default function CountrySelect(props) {
           }}
         >
             {props.onPickedCountry(params.inputProps.value)}
-        </TextField>
+        </CssTextField>
       )}
     />
   );

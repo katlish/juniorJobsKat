@@ -60,16 +60,18 @@ function JobsSearch() {
   console.log("isRemote:",isRemote)
 
   return (
-    <div className={classes.JobsSearch}>
-        <div className={classes.selectCountryList}>
-          <CountrySelect onPickedCountry={updateCountry}/>
-        </div>
-        <div className={classes.remoteJobs}>
-          <CustomSwitch labelText={"Remote jobs only"} filterByRemote={updateRemote}/>
-        </div>
-        <div className={classes.searchResult}>
-          <Jobs jobs={jobsFiltered}/>
-        </div>
+    <div className={classes.mainContainer}>
+      <div className={classes.JobsSearch}>
+          <div className={classes.selectCountryList}>
+            <CountrySelect onPickedCountry={updateCountry}/>
+          </div>
+          <div className={classes.remoteJobs}>
+            <CustomSwitch labelText={"Remote jobs only"} filterByRemote={updateRemote}/>
+          </div>
+          <div className={classes.searchResult}>
+            <Jobs jobs={jobsFiltered}/>
+          </div>
+      </div>
     </div>
   );
 }

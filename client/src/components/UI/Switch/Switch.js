@@ -1,17 +1,16 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
 const PurpleSwitch = withStyles({
   switchBase: {
-    color: purple[300],
+    color: "rgba(187,134,252,0.38)",
     '&$checked': {
-      color: purple[500],
+      color: "#BB86FC",
     },
     '&$checked + $track': {
-      backgroundColor: purple[500],
+      backgroundColor: "#BB86FC",
     },
   },
   checked: {},
@@ -35,6 +34,7 @@ export default function CustomSwitch(props) {
       <FormControlLabel
         control={<PurpleSwitch checked={state.checked} onChange={handleChange} name="checked" />}
         label={props.labelText}
+        labelPlacement="start"
       />
       
   );

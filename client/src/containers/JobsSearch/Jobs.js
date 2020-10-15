@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -43,16 +42,12 @@ export default function Jobs({jobs}) {
     return (
         <div>
             <div className={classes.title}>
-                <Typography variant='h4' component='h1'>
-                        Entry level software jobs
-                </Typography>
-                <Typography variant='h6' component='h2'>
-                    Found {numJobs} jobs :
-                </Typography>
+                {numJobs} Entry Level Software Jobs Found
             </div>
             
             <JobModal open={open} job={selectedJob} handleClose={handleClose}/>
-            
+
+            <div className={classes.jobsList}>
             {
                 jobsOnPage.map(
                     (job, i) => <Job key={i}  job={job} onClick={() => {
@@ -61,6 +56,7 @@ export default function Jobs({jobs}) {
                     }}/>
                 )
             }
+            </div>
             
             <div className={classes.pagination}>
                 <h3>

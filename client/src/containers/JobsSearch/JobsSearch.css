@@ -1,30 +1,49 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background: #272727;
+}
+
 .JobsSearch {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
   padding-top: 100px;
-  flex-grow: 1;
-  background: linear-gradient(90deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+  max-width: 80%;
 }
-
 .selectCountryList {
   order: 1;
   padding-bottom: 50px;
+  width: 100%;
 }
 
 .remoteJobs {
   order: 2;
   padding-bottom: 50px;
+  color: rgba(255,255,255,0.87);
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  line-height: 24px;
 }
 
 .searchResult {
+  display: flex;
+  justify-content: center;
+  align-items:center;
   order: 3;
 }
 
 .title {
-  color: #fff;
   text-align: center;
+  color: rgba(255,255,255,0.87);
+  font-family: Roboto;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 16px;
 }
 
 .pagination {
@@ -33,28 +52,105 @@
   margin: 40px 0;
 }
 
+
+.jobsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  column-width: 50%;
+}
+
 .job {
-    justify-content: space-between;
-    margin: 0 auto;
-    margin: 20px 0;
-    padding: 20px 10px;
-    align-items: center;
-  }
+  margin: 20px 0;
+  box-sizing: border-box;
+  height: 312px;
+  width: 344px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.12);
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.jobHeaderContainer {
+  margin: 14px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobTitle {
   
-  .detail-logo {
-    height: 30px;
-    float: right;
-  }
+  color: rgba(255,255,255,0.87);
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+}
+
+.jobCompanyName {
+  margin-top: 14px;
+  color: rgba(255,255,255,0.87);
+  font-family: Roboto;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 20px;
+}
+
+.jobLocationAndDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  font-family: Roboto;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 20px;
+  margin: 16px 14px;
+}
+
+.jobLogoContainer {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  margin: 5px 0;
+}
+.jobLogo {
+  height: 100%;
+  width: auto;
+}
+
   
-  .job:hover {
-    cursor: pointer;
-    color: darkgray;
-  }
-  
-  .job-company {
-    padding: 0 30px;
-  }
-  
-  .job-dialog {
-    padding: 30px 50px;
-  }
+.detail-logo {
+  height: 30px;
+  float: right;
+}
+
+.job:hover {
+  cursor: pointer;
+  color: darkgray;
+}
+
+.job-company {
+  padding: 0 30px;
+}
+
+.job-dialog {
+  padding: 30px 50px;
+}
+
+
+/* .elevation {
+  height: 312px;
+  width: 344px;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+} */

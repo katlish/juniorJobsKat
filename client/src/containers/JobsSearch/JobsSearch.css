@@ -4,6 +4,7 @@
   justify-content: center;
   align-items:center;
   background: #272727;
+  
 }
 
 .JobsSearch {
@@ -11,20 +12,24 @@
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  padding-top: 100px;
+  padding-top: 20px;
   max-width: 80%;
 }
 .selectCountryList {
   order: 1;
   padding-bottom: 50px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
 }
 
 .remoteJobs {
   order: 2;
   padding-bottom: 50px;
   color: rgba(255,255,255,0.87);
-  font-family: Roboto;
+  
   font-size: 16px;
   letter-spacing: 0.15px;
   line-height: 24px;
@@ -40,7 +45,7 @@
 .title {
   text-align: center;
   color: rgba(255,255,255,0.87);
-  font-family: Roboto;
+ 
   font-size: 12px;
   letter-spacing: 0.4px;
   line-height: 16px;
@@ -87,7 +92,7 @@
 .jobTitle {
   
   color: rgba(255,255,255,0.87);
-  font-family: Roboto;
+  
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.15px;
@@ -97,7 +102,7 @@
 .jobCompanyName {
   margin-top: 14px;
   color: rgba(255,255,255,0.87);
-  font-family: Roboto;
+  
   font-size: 14px;
   letter-spacing: 0.25px;
   line-height: 20px;
@@ -108,7 +113,7 @@
   flex-direction: column;
   justify-content: center;
   color: rgba(255,255,255,0.6);
-  font-family: Roboto;
+  
   font-size: 14px;
   letter-spacing: 0.25px;
   line-height: 20px;

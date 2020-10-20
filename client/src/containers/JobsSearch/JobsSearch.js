@@ -3,18 +3,20 @@ import classes from "./JobsSearch.css";
 import Jobs from './Jobs'
 import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
 import CustomSwitch from '../../components/UI/Switch/Switch'
-
+import Header from '../../components/UI/Header/Header'
 
 
 const JOBS_API_URL = '/api/jobs'
 const HASH_FOR_JOBS_IN_GITHUB = 'github'
 
-async function fetchJobsFromAPI(updateFullList, updateFilteredJobs) {
+async function fetchJobsFromAPI(updateFullList, updateCountryList) {
   const res = await fetch(`${JOBS_API_URL}?hash=${HASH_FOR_JOBS_IN_GITHUB}`,{
     method: "GET"   
   })
   const json = await res.json()
   updateFullList(json)
+  //TODO:parser
+  updateCountryList(["USA", "United Kingdom", "Canada", "Russia", "Poland"])
 }
 
 function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRemote){
@@ -39,13 +41,14 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
 
 function JobsSearch() {
   const [fullJobList, updateFullList] = React.useState([])
+  const [countriesList, updateCountryList] = React.useState([])
   const [jobsFiltered, updateFilteredJobs] = React.useState([])
   const [pickedCountry, updateCountry] = React.useState(null)
   const [isRemote, updateRemote] = React.useState(true)
 
   React.useEffect(() => {
   console.log("useEffect() - fetchJobsFromAPI()")
-    fetchJobsFromAPI(updateFullList, updateFilteredJobs)
+    fetchJobsFromAPI(updateFullList, updateCountryList)
   }, [])
 
   React.useEffect(() => {
@@ -55,15 +58,17 @@ function JobsSearch() {
 
   console.log("RETURN!!!")
   console.log("fullJobList:",fullJobList)
+  console.log("countriesList:",countriesList)
   console.log("jobsFiltered:",jobsFiltered)
   console.log("pickedCountry:",pickedCountry)
   console.log("isRemote:",isRemote)
 
   return (
     <div className={classes.mainContainer}>
+      <Header/>
       <div className={classes.JobsSearch}>
           <div className={classes.selectCountryList}>
-            <CountrySelect onPickedCountry={updateCountry}/>
+            <CountrySelect onPickedCountry={updateCountry} countriesList={countriesList}/>
           </div>
           <div className={classes.remoteJobs}>
             <CustomSwitch labelText={"Remote jobs only"} filterByRemote={updateRemote}/>

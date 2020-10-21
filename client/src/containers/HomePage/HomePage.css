@@ -22,26 +22,43 @@
   .mycontainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items:center;
-    height: 500px;
-    width: 300px;
+    height: 312px;
+    width: 344px;
+    margin: 10px;
     background-color: #17c511;
   }
 
-  .mydiv1 {
-    height: 50px;
+  .jobtitle {
     width: 100%;
     background-color: red;
   }
-  .mydiv2 {
-    height: 50px;
-    width: 40%;
+  .company {
+    width: 100%;
     background-color: blue;
   }
 
-  .mydiv3 {
-    height: 50px;
-    width: 80%;
+  .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 100%;
     background-color: white;
+  }
+  .jobLogo {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  
+  .location {
+    width: 100%;
+    background-color: grey;
+  }
+  .date {
+    width: 100%;
+    background-color: yellow;
   }

@@ -21,7 +21,7 @@
 .selectCountryList {
   order: 1;
   padding-bottom: 50px;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,13 +29,17 @@
 }
 
 .remoteJobs {
+  display: flex;
+  justify-content: center;
   order: 2;
-  padding-bottom: 50px;
+  padding-bottom: 13px;
   color: rgba(255,255,255,0.87);
   
   font-size: 16px;
   letter-spacing: 0.15px;
   line-height: 24px;
+  width: 100%;
+  box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.75);
 }
 
 .searchResult {
@@ -45,6 +49,7 @@
   order: 3;
   width: 100%;
   height: 100%;
+  margin-top: 23px;
 }
 
 .jobsContainer {
@@ -101,6 +106,10 @@
 }
 
 .job {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   margin: 20px 0;
   box-sizing: border-box;
   height: 312px;
@@ -110,10 +119,6 @@
   border-radius: 4px;
   background-color: rgba(255,255,255,0.05);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 
@@ -134,7 +139,7 @@
 }
 
 .jobCompanyName {
-  margin-top: 14px;
+  margin: 14px 0;
   color: rgba(255,255,255,0.87);
   
   font-size: 14px;
@@ -155,17 +160,31 @@
 }
 
 .jobLogoContainer {
-  height: 30%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 100%;
   background: #fff;
   margin: 5px 0;
 }
 .jobLogo {
   height: 100%;
-  width: auto;
+  width: 100%;
+  object-fit: contain;
 }
 
+.jobMoreInfo {
+  height: 14%;
+  color: #BB86FC;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  padding: 3%;
+  text-align: end;
+}
   
 .detail-logo {
   height: 30px;

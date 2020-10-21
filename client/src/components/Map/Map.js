@@ -16,8 +16,8 @@ export default function Map (props) {
               id="map"
               title="map"
               frameBorder="0"
-              width="92%"
-              height="98%"
+              width="100%"
+              height="100%"
               scrolling="no"
               src={_url}
             />

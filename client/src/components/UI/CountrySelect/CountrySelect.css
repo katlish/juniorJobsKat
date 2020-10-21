@@ -3,11 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    width: 100%;
+    width: 65%;
 }
 
 .CountrySelectInput {
-    width: 80%;
+    width: 100%;
     height: 56px;
     box-sizing: border-box;
     padding: 16px;
@@ -22,4 +22,13 @@
 
 .CountrySelectOption {
     width: 100%;
+}
+
+.labelShow {
+    align-self: end;
+    margin-left: 10px;
+    color: rgba(255,255,255,0.38);
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    line-height: 16px;
 }

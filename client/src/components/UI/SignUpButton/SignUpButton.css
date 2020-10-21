@@ -1,0 +1,19 @@
+.SignUpButtonDiv {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 220px;
+    border-radius: 4px;
+    background-color: #BB86FC;
+    margin-left: 10px;
+}
+
+.SignUpButtonLink {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    line-height: 16px;
+    text-decoration: none;
+}

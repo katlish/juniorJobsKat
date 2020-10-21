@@ -12,6 +12,8 @@ import Candidate from './Candidate';
 
 import { connect } from "react-redux";
 import { fetchCandidates } from "../../store/actions/candidate";
+import NavBar from '../../components/UI/NavBar/NavBar'
+import Footer from '../../components/UI/Footer/Footer'
 
 const NUM_OF_CANDIDATES_ON_PAGE = 2;
 
@@ -63,6 +65,8 @@ class CnadidatesList extends Component {
 
     
     return (
+      <>
+      <NavBar/>
       <div className={classes.CandidatesList}>
         <div>
           <div className={classes.title}>
@@ -113,6 +117,8 @@ class CnadidatesList extends Component {
 
         </div>
       </div>
+      <Footer/>
+      </>
     );
   }
 }

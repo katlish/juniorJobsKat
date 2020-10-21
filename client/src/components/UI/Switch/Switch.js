@@ -5,7 +5,7 @@ import Switch from '@material-ui/core/Switch';
 
 const PurpleSwitch = withStyles({
   switchBase: {
-    color: "rgba(187,134,252,0.38)",
+    color: "#BB86FC",
     '&$checked': {
       color: "#BB86FC",
     },

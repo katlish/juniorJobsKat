@@ -1,16 +1,40 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import classes from "./JobsSearch.css";
 
 import Job from './Job'
 import JobModal from './JobModal'
+import classes from "./JobsSearch.css";
 
 const NUM_OF_JOBS_ON_PAGE = 20
 
+
+const useStylesMobileStepper = makeStyles({
+    colorPrimary: {
+        backgroundColor: 'rgba(187,134,252,0.38)'
+    },
+    barColorPrimary: {
+        backgroundColor: '#BB86FC'
+    },
+  }, { name: 'MuiLinearProgress' });
+
+const useStylesGeneral = makeStyles({
+    root: {
+      background: 'transparent',
+      color: '#BB86FC'
+    },
+    disabled: { 
+        color: "#BB86FC !important", 
+        opacity: "0.5"
+      }
+  });
+
 export default function Jobs({jobs}) {
+    const generalCls = useStylesGeneral();
+    const mobileStepperCls = useStylesMobileStepper();
     const numJobs = jobs.length
     const numPages = Math.ceil(numJobs / NUM_OF_JOBS_ON_PAGE)
 
@@ -40,7 +64,7 @@ export default function Jobs({jobs}) {
     };
 
     return (
-        <div>
+        <div className={classes.jobsContainer}>
             <div className={classes.title}>
                 {numJobs} Entry Level Software Jobs Found
             </div>
@@ -57,30 +81,43 @@ export default function Jobs({jobs}) {
                 )
             }
             </div>
-            
-            <div className={classes.pagination}>
-                <h3>
-                Page {activeStep+1} of {numPages} pages
-                </h3>
-            
-                <MobileStepper
-                    variant="progress"
-                    steps={numPages}
-                    position="static"
-                    activeStep={activeStep}
-                    nextButton={
-                        <Button size="small" onClick={handleNext} disabled={activeStep === numPages-1}>
-                        Next
-                        <KeyboardArrowRight />
-                        </Button>
-                    }
-                    backButton={
-                        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                        <KeyboardArrowLeft />
-                        Back
-                        </Button>
-                    }
-                />
+            <div className={classes.paginationContainer}>
+                <div className={classes.pagination}>
+                    <h3>
+                    Page {activeStep+1} of {numPages} pages
+                    </h3>
+                
+                    <MobileStepper
+                        variant="progress"
+                        steps={numPages}
+                        position="static"
+                        activeStep={activeStep}
+                        nextButton={
+                            <Button 
+                                classes={{...generalCls}}
+                                size="small" 
+                                onClick={handleNext} 
+                                disabled={activeStep === numPages-1}
+                                
+                                >
+                            Next
+                            <KeyboardArrowRight />
+                            </Button>
+                        }
+                        backButton={
+                            <Button 
+                                classes={{...generalCls}}
+                                size="small" 
+                                onClick={handleBack} 
+                                disabled={activeStep === 0}
+                                >
+                            <KeyboardArrowLeft />
+                            Back
+                            </Button>
+                        }
+                        classes={{...mobileStepperCls, ...generalCls}}
+                    />
+                </div>
             </div>
         </div>
     )

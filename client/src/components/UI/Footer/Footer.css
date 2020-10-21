@@ -1,0 +1,36 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    height: 56px;
+    width: 100%;
+    background-color: #1E1E1E;
+}
+
+.copyright {
+    height: 16px;
+    width: fit-content;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    line-height: 16px;
+    margin: 20px 14px;
+}
+
+.socialLinksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    margin: 20px 14px;
+}
+
+.socialLinks {
+    color: #BB86FC;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    line-height: 16px;
+    margin: 0 0 0 21px;
+    text-decoration: none;
+}

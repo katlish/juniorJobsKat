@@ -3,7 +3,8 @@ import classes from "./JobsSearch.css";
 import Jobs from './Jobs'
 import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
 import CustomSwitch from '../../components/UI/Switch/Switch'
-import Header from '../../components/UI/Header/Header'
+import NavBar from '../../components/UI/NavBar/NavBar'
+import Footer from '../../components/UI/Footer/Footer'
 
 
 const JOBS_API_URL = '/api/jobs'
@@ -33,7 +34,11 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
     
     updateFilteredJobs(finallyFilteredCountries);
   } else {
-    const filteredCountries = allCountries.filter(job => job.location.includes(country));
+    let countryToFilter = country;
+    if (countryToFilter === null) {
+      countryToFilter = ''
+    }
+    const filteredCountries = allCountries.filter(job => job.location.includes(countryToFilter));
   
     updateFilteredJobs(filteredCountries)
   }
@@ -65,7 +70,7 @@ function JobsSearch() {
 
   return (
     <div className={classes.mainContainer}>
-      <Header/>
+      <NavBar/>
       <div className={classes.JobsSearch}>
           <div className={classes.selectCountryList}>
             <CountrySelect onPickedCountry={updateCountry} countriesList={countriesList}/>
@@ -77,6 +82,7 @@ function JobsSearch() {
             <Jobs jobs={jobsFiltered}/>
           </div>
       </div>
+      <Footer/>
     </div>
   );
 }

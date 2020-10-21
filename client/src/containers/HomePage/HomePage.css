@@ -18,3 +18,30 @@
     padding: 20px 10px;
     align-items: center;
   }
+
+  .mycontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: 500px;
+    width: 300px;
+    background-color: #17c511;
+  }
+
+  .mydiv1 {
+    height: 50px;
+    width: 100%;
+    background-color: red;
+  }
+  .mydiv2 {
+    height: 50px;
+    width: 40%;
+    background-color: blue;
+  }
+
+  .mydiv3 {
+    height: 50px;
+    width: 80%;
+    background-color: white;
+  }

@@ -6,6 +6,7 @@ import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
 import Drawer from "../../components/Navigation/Drawer/Drawer";
 import NavBar from '../../components/UI/NavBar/NavBar';
 import Footer from '../../components/UI/Footer/Footer';
+import MobileMenu from '../../components/Navigation/MobileMenu/MobileMenu';
 
 
 class Layout extends React.Component {
@@ -28,16 +29,14 @@ class Layout extends React.Component {
   render() {
     return (
       <div className={classes.Layout}>
-        <Drawer
+        <MobileMenu 
           isOpen={this.state.menu}
           onClose={this.menuCloseHndler}
           isAuthenticated={this.props.isAuthenticated}
-        />
-
-        <MenuToggle
           onToggle={this.toggleMenuHandler}
           isOpen={this.state.menu}
         />
+        
 
         <main>
           <div className={jobsClasses.mainContainer}>

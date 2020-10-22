@@ -1,0 +1,58 @@
+.MobileMenu {
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+    display: none;
+}
+
+/* Small phones to small tablets: from 860px to 0px*/
+@media only screen and (max-width: 860px) {
+    .MobileMenu {  
+        display: block ;
+}
+}
+
+
+.dd-element {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
+/* Small tablet to big tablet: from 768px to 991px*/
+@media only screen and (max-width: 991px) {
+    .nav-bar-container {
+        max-width: 728px;
+    }
+}
+  
+/* Small phones to small tablets: from 481px to 767px*/
+@media only screen and (max-width: 767px) {
+    .right {
+        display: none;
+    }
+
+    .dd-element {  
+        display: block ;
+    }
+
+    .nav-bar-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+}
+
+
+/* Small phones: from 0 to 480px*/
+@media only screen and (max-width: 480px) { 
+    .nav-bar-container {
+        max-width: none;
+    }
+}

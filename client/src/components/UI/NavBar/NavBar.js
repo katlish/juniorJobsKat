@@ -15,7 +15,7 @@ function NavBar(props) {
         </div>
         <div className={classes.NavBarMiddleDiv}>
             <CurrentPageBtn text="JOBS" to="/jobsSearch"/>
-            <CurrentPageBtn text="CANDIDATES" to="/candidatesList"/>
+            <CurrentPageBtn text="CANDIDATES" to="/candidatesSearch"/>
         </div>
         <div className={classes.NavBarElement}>
             <LoginButton/>

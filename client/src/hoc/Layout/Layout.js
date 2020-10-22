@@ -1,8 +1,12 @@
 import React from "react";
+import connect from "react-redux/lib/connect/connect";
 import classes from "./Layout.css";
+import jobsClasses from '../../containers/JobsSearch/ItemsSearch.css'
 import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
 import Drawer from "../../components/Navigation/Drawer/Drawer";
-import connect from "react-redux/lib/connect/connect";
+import NavBar from '../../components/UI/NavBar/NavBar';
+import Footer from '../../components/UI/Footer/Footer';
+
 
 class Layout extends React.Component {
   state = {
@@ -35,7 +39,13 @@ class Layout extends React.Component {
           isOpen={this.state.menu}
         />
 
-        <main>{this.props.children}</main>
+        <main>
+          <div className={jobsClasses.mainContainer}>
+            <NavBar/>
+              {this.props.children}
+            <Footer/>
+          </div>
+        </main>
       </div>
     );
   }

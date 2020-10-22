@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from "./JobsSearch.css";
+import classes from "./ItemsSearch.css";
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -24,25 +24,25 @@ export default function Job({job, onClick}) {
     }
     
     return (
-            <div onClick={onClick} className={classes.job}>
-                <div className={classes.jobHeaderContainer}>
+            <div onClick={onClick} className={classes.itemCard}>
+                <div className={classes.itemHeaderContainer}>
                     <Tooltip title={longJobTitle} placement="bottom-start">
-                        <div className={classes.jobTitle}>{shortJobTitle}</div>
+                        <div className={classes.itemTitle}>{shortJobTitle}</div>
                     </Tooltip>
                     <Tooltip title={longJobCompany} placement="bottom-start">
-                        <div className={classes.jobCompanyName}>{shortJobCompany}</div>
+                        <div className={classes.itemSubTitle}>{shortJobCompany}</div>
                     </Tooltip>
                 </div>
-                <div className={classes.jobLogoContainer}>
-                    <img className={classes.jobLogo} src={job.company_logo} alt=""/>
+                <div className={classes.itemLogoContainer}>
+                    <img className={classes.itemLogo} src={job.company_logo} alt=""/>
                 </div>
-                <div className={classes.jobLocationAndDate}>
+                <div className={classes.itemBottomDiv}>
                     <Tooltip title={longJobLocation} placement="bottom-start">
                             <div>{shortJobLocation}</div>
                     </Tooltip>
                     <div>{job.created_at.split(' ').slice(0,3).join(' ')}</div>
                 </div>
-                <div className={classes.jobMoreInfo}>
+                <div className={classes.itemButton}>
                     MORE INFO
                 </div>
             </div>

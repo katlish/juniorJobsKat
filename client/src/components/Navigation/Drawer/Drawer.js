@@ -43,7 +43,7 @@ class Drawer extends React.Component {
       },
       { to: "/candidate-creator", label: "Add Your Candidate", exact: false },
       { to: "/quizList", label: "Quizes List", exact: false },
-      { to: "/candidatesList", label: "Candidates List", exact: false },
+      { to: "/candidatesSearch", label: "Candidates List", exact: false },
       { to: "/logout", label: "Logout", exact: false }
       );
     } else {

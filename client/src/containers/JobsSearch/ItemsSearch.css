@@ -8,7 +8,7 @@
   
 }
 
-.JobsSearch {
+.ItemsSearch {
   display: flex;
   flex-direction: column;
   
@@ -52,10 +52,10 @@
   margin-top: 23px;
 }
 
-.jobsContainer {
+.itemsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items:center;
   width: 100%;
   height: 100%;
@@ -70,33 +70,23 @@
   line-height: 16px;
 }
 
-.paginationContainer {
+.pageTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
-  width: 100%;
-  height: 100px;
-  border-radius: 4px 4px 0 0;
-  background-color: rgba(255,255,255,0.12);
-  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
-}
-
-.pagination {
-  width: 80%
-}
-
-.pagination h3 {
+  align-items: center;
+  color: #fff;
+  font-size: larger;
   text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 12px;
-  letter-spacing: 0.4px;
-  line-height: 16px;
-  font-weight: normal;
-  margin: 0;
+  margin-top: -20px;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.75);
 }
 
-.jobsList {
+
+
+.itemsList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -105,12 +95,12 @@
   margin-bottom: 20px;
 }
 
-.job {
+.itemCard {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  margin: 20px 0;
+  margin: 15px;
   box-sizing: border-box;
   height: 312px;
   width: 344px;
@@ -122,13 +112,13 @@
 }
 
 
-.jobHeaderContainer {
+.itemHeaderContainer {
   margin: 14px 16px 0 16px;
   display: flex;
   flex-direction: column;
 }
 
-.jobTitle {
+.itemTitle {
   
   color: rgba(255,255,255,0.87);
   
@@ -138,7 +128,7 @@
   line-height: 24px;
 }
 
-.jobCompanyName {
+.itemSubTitle {
   margin: 14px 0;
   color: rgba(255,255,255,0.87);
   
@@ -147,7 +137,7 @@
   line-height: 20px;
 }
 
-.jobLocationAndDate {
+.itemBottomDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -159,7 +149,7 @@
   margin: 16px 14px;
 }
 
-.jobLogoContainer {
+.itemLogoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -169,13 +159,13 @@
   background: #fff;
   margin: 5px 0;
 }
-.jobLogo {
+.itemLogo {
   height: 100%;
   width: 100%;
   object-fit: contain;
 }
 
-.jobMoreInfo {
+.itemButton {
   height: 14%;
   color: #BB86FC;
   font-size: 14px;
@@ -186,22 +176,10 @@
   text-align: end;
 }
   
-.detail-logo {
-  height: 30px;
-  float: right;
-}
 
-.job:hover {
+.itemCard:hover {
   cursor: pointer;
   color: darkgray;
-}
-
-.job-company {
-  padding: 0 30px;
-}
-
-.job-dialog {
-  padding: 30px 50px;
 }
 
 

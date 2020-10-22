@@ -9,9 +9,9 @@ import connect from "react-redux/lib/connect/connect";
 import Logout from "./components/Logout/Logout";
 import { autoLogin } from "./store/actions/auth";
 import JobsSearch from "./containers/JobsSearch/JobsSearch";
+import CandidatesSearch from './containers/CandidatesSearch/CandidatesSearch'
 import HomePage from "./containers/HomePage/HomePage";
 import CandidateCreator from "./containers/CandidateCreator/CandidateCreator";
-import CandidatesList from "./containers/CandidatesList/CandidatesList";
 
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
         <Route path="/quiz/:id" component={Quiz} />
         <Route path="/jobsSearch" component={JobsSearch} />
         <Route path="/quizList" component={QuizList} />
-        <Route path="/candidatesList" component={CandidatesList} />
+        <Route path="/candidatesSearch" component={CandidatesSearch} />
         <Route path="/" exact component={HomePage} />
         <Redirect to="/" />
       </Switch>
@@ -41,14 +41,17 @@ class App extends Component {
           <Route path="/logout" component={Logout} />
           <Route path="/jobsSearch" component={JobsSearch} />
           <Route path="/quizList" component={QuizList} />
-          <Route path="/candidatesList" component={CandidatesList} />
+          <Route path="/candidatesSearch" component={CandidatesSearch} />
           <Route path="/" exact component={HomePage} />
           <Redirect to="/" />
         </Switch>
       );
     }
 
-    return <Layout>{routes}</Layout>;
+    return (
+    <Layout>
+      {routes}
+    </Layout>);
   }
 }
 

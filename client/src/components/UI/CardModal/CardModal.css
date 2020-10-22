@@ -1,4 +1,4 @@
-.JobModalContainer {
+.CardModalContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -8,7 +8,7 @@
     background-color: #272727e8;;
 }
 
-.jobMapContainer {
+.CardMapContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,14 +18,14 @@
     margin: 5px 0;
     position: relative;
   }
-.jobModalTitle {
+.CardModalTitle {
     color: rgba(255,255,255,0.87);
     font-size: 16px;
     letter-spacing: 0.15px;
     line-height: 24px;
-    padding: 20px 56px;
+    padding: 20px 24px;
 }
-.jobLogoRound {
+.CardLogoRound {
     height: 120px;
     width: 120px;
     border-radius: 100px;
@@ -36,7 +36,7 @@
     padding: 20px;
 }
 
-.jobModalDescription {
+.CardModalDescription {
     color: rgba(255,255,255,0.6);
     font-size: 14px;
     letter-spacing: 0.25px;
@@ -47,7 +47,7 @@
     margin-bottom: 15px;
 }
 
-.jobModalButtonsContainer {
+.CardModalButtonsContainer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -56,7 +56,7 @@
     width: 100%;
     border-top: 1.3px solid rgba(255,255,255,0.3);
 }
-.jobModalButtons {
+.CardModalButtons {
     color: #BB86FC;
     font-size: 14px;
     font-weight: 500;
@@ -66,4 +66,9 @@
     text-decoration: none;
     cursor: pointer;
     
+}
+
+.CardModalDescription a {
+    text-decoration: none;
+    color: #BB86FC;
 }

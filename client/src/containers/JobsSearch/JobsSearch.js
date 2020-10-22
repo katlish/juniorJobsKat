@@ -1,10 +1,8 @@
 import React from "react";
-import classes from "./JobsSearch.css";
+import classes from "./ItemsSearch.css";
 import Jobs from './Jobs'
 import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
 import CustomSwitch from '../../components/UI/Switch/Switch'
-import NavBar from '../../components/UI/NavBar/NavBar'
-import Footer from '../../components/UI/Footer/Footer'
 
 
 const JOBS_API_URL = '/api/jobs'
@@ -69,9 +67,7 @@ function JobsSearch() {
   console.log("isRemote:",isRemote)
 
   return (
-    <div className={classes.mainContainer}>
-      <NavBar/>
-      <div className={classes.JobsSearch}>
+      <div className={classes.ItemsSearch}>
           <div className={classes.selectCountryList}>
             <CountrySelect onPickedCountry={updateCountry} countriesList={countriesList}/>
           </div>
@@ -82,8 +78,6 @@ function JobsSearch() {
             <Jobs jobs={jobsFiltered}/>
           </div>
       </div>
-      <Footer/>
-    </div>
   );
 }
 

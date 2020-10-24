@@ -12,7 +12,7 @@ function SignUpButton(props) {
     return (
       <div className={classes.SignUpButtonDiv}>
         <NavLink
-            to="/auth"
+            to="/candidate-creator"
             exact={true}
             onClick={signUpHandler}
             className={classes.SignUpButtonLink}

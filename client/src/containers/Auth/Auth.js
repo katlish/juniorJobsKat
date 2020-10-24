@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from "./Auth.css";
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
+import { NavLink } from "react-router-dom";
 import is from "is_js";
 import { connect } from "react-redux";
 import { auth } from "../../store/actions/auth";
@@ -20,7 +21,8 @@ class Auth extends Component {
         validation: {
           required: true,
           email: true
-        }
+        },
+        placeholder: "Enter your email"
       },
       password: {
         value: "",
@@ -32,7 +34,8 @@ class Auth extends Component {
         validation: {
           required: true,
           minLength: 6
-        }
+        },
+        placeholder: "Enter your password"
       }
     }
   };
@@ -110,47 +113,53 @@ class Auth extends Component {
     return Object.keys(this.state.formControls).map((controlName, index) => {
       const control = this.state.formControls[controlName];
       return (
-        <Input
-          key={controlName + index}
-          type={control.type}
-          value={control.value}
-          valid={control.valid}
-          touched={control.touched}
-          label={control.label}
-          errorMessage={control.errorMessage}
-          shouldValidate={!!control.validation}
-          onChange={event => this.onChangeHandler(event, controlName)}
-        />
+          <Input
+            key={controlName + index}
+            type={control.type}
+            value={control.value}
+            valid={control.valid}
+            touched={control.touched}
+            label={control.label}
+            errorMessage={control.errorMessage}
+            shouldValidate={!!control.validation}
+            onChange={event => this.onChangeHandler(event, controlName)}
+            placeholder={control.placeholder}
+          />
       );
     });
   }
 
   render() {
     return (
-      <div className={classes.Auth}>
-        <div>
-          <h1>Authorization</h1>
-
-          <form onSubmit={this.submitHandler} className={classes.AuthForm}>
+      <div className={classes.mainContainer}>
+        <div className={classes.pageTitle}>
+          LOGIN TO JUNIOR JOBS
+        </div>
+          <form onSubmit={this.submitHandler} className={classes.authForm}>
             {this.renderInputs()}
 
             <Button
-              type="success"
               onClick={this.loginHandler}
               disabled={!this.state.isFormValid}
             >
-              Login
+              <NavLink
+                  to="/candidate-creator"
+                  exact={true}
+                  onClick={this.loginHandler}
+                  className={classes.buttonLink}
+                >
+                  LOG IN
+              </NavLink>
             </Button>
 
-            <Button
+            {/* <Button
               type="primary"
               onClick={this.registerHandler}
               disabled={!this.state.isFormValid}
             >
               Sign up
-            </Button>
+            </Button> */}
           </form>
-        </div>
       </div>
     );
   }

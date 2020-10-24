@@ -10,7 +10,6 @@ import Logout from "./components/Logout/Logout";
 import { autoLogin } from "./store/actions/auth";
 import JobsSearch from "./containers/JobsSearch/JobsSearch";
 import CandidatesSearch from './containers/CandidatesSearch/CandidatesSearch'
-import HomePage from "./containers/HomePage/HomePage";
 import CandidateCreator from "./containers/CandidateCreator/CandidateCreator";
 
 
@@ -24,10 +23,9 @@ class App extends Component {
       <Switch>
         <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
-        <Route path="/jobsSearch" component={JobsSearch} />
         <Route path="/quizList" component={QuizList} />
         <Route path="/candidatesSearch" component={CandidatesSearch} />
-        <Route path="/" exact component={HomePage} />
+        <Route path="/" exact component={JobsSearch} />
         <Redirect to="/" />
       </Switch>
     );
@@ -39,10 +37,9 @@ class App extends Component {
           <Route path="/candidate-creator" component={CandidateCreator} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
-          <Route path="/jobsSearch" component={JobsSearch} />
           <Route path="/quizList" component={QuizList} />
           <Route path="/candidatesSearch" component={CandidatesSearch} />
-          <Route path="/" exact component={HomePage} />
+          <Route path="/" exact component={JobsSearch} />
           <Redirect to="/" />
         </Switch>
       );

@@ -1,26 +1,40 @@
-.CandidateCreator {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    flex-grow: 1;
-    width: 100%;
-    background: linear-gradient(270deg, #dbee34 0%, #f79cbd 100%);
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  min-height: 650px;
+}
+
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255,255,255,0.87);
+  font-size: larger;
+  letter-spacing: 0.18px;
+  line-height: 24px;
+  margin-top: -20px;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.75);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  padding: 30px;
+}
+
+/* Small phones to small tablets: from 520px to 0px*/
+@media only screen and (max-width: 520px) {
+  .authForm {  
+      width: 70%;
   }
-  
-  .CandidateCreator > div {
-    width: 100%;
-    max-width: 600px;
-    padding: 0 20px;
-  }
-  
-  .CandidateCreator h1 {
-    text-align: center;
-  }
-  
-  .CandidateCreator form {
-    background: #eee;
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 2px 2px 2px rgbs(0, 0, 0, 0.5);
-  }
-  
+}
+

@@ -32,18 +32,20 @@ class Drawer extends React.Component {
       cls.push(classes.close);
     }
 
-    const links = [{ to: "/jobsSearch", label: "Jobs Search", exact: false },
-                    { to: "/", label: "Home", exact: true }];
+    const links = [
+      { to: "/", label: "Jobs Search", exact: true },
+      { to: "/candidatesSearch", label: "Candidates Search", exact: false }];
 
     if (this.props.isAuthenticated) {
-      links.push({
-        to: "/quiz-creator",
-        label: "Create Your Quiz",
-        exact: false
-      },
-      { to: "/candidate-creator", label: "Add Your Candidate", exact: false },
-      { to: "/quizList", label: "Quizes List", exact: false },
-      { to: "/candidatesSearch", label: "Candidates List", exact: false },
+      links.push(
+      //   {
+      //   to: "/quiz-creator",
+      //   label: "Create Your Quiz",
+      //   exact: false
+      // },
+      { to: "/candidate-creator", label: "Add My Candidature", exact: false },
+      // { to: "/quizList", label: "Quizes List", exact: false },
+      
       { to: "/logout", label: "Logout", exact: false }
       );
     } else {

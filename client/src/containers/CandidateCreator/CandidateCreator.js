@@ -7,7 +7,6 @@ import {
   validateForm
 } from "../../form/formFramework";
 import Input from "../../components/UI/Input/Input";
-import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import { connect } from "react-redux";
 import {
   createCandidate,
@@ -15,7 +14,7 @@ import {
 } from "../../store/actions/createCandidate";
 
 
-
+// TODO: add all fields
 function createFormCntrls() {
   return {
     name: createControl(
@@ -110,42 +109,39 @@ class CandidateCreator extends Component {
       const control = this.state.formControls[controlName];
 
       return (
-        <Auxiliary key={controlName + index}>
           <Input
-            label={control.label}
+            key={controlName + index}
+            type={control.type}
             value={control.value}
             valid={control.valid}
-            shouldValidate={!!control.validation}
             touched={control.touched}
+            label={control.label}
+            shouldValidate={!!control.validation}
             errorMessage={control.errorMessage}
             onChange={event =>
               this.onChangeHandler(event.target.value, controlName)
             }
           />
-          {index === 0 ? <hr /> : null}
-        </Auxiliary>
       );
     });
   }
 
   render() {
     return (
-      <div className={classes.CandidateCreator}>
-        <div>
-          <h1>Candidate Creator</h1>
-
-          <form onSubmit={this.submitHandler}>
+      <div className={classes.mainContainer}>
+        <div className={classes.pageTitle}>
+          ADD MY CANDIDATURE
+        </div>
+          <form onSubmit={this.submitHandler} className={classes.authForm}>
             {this.renderControls()}
 
             <Button
-              type="success"
               onClick={this.addCandidateHandler}
               disabled={!this.state.isFormValid}
             >
-              Add Your Candidate
+              SUBMIT MY CANDIDATURE
             </Button>
           </form>
-        </div>
       </div>
     );
   }

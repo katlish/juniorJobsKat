@@ -1,9 +1,6 @@
 import React from "react";
 import connect from "react-redux/lib/connect/connect";
 import classes from "./Layout.css";
-import jobsClasses from '../../containers/JobsSearch/ItemsSearch.css'
-import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
-import Drawer from "../../components/Navigation/Drawer/Drawer";
 import NavBar from '../../components/UI/NavBar/NavBar';
 import Footer from '../../components/UI/Footer/Footer';
 import MobileMenu from '../../components/Navigation/MobileMenu/MobileMenu';
@@ -37,14 +34,13 @@ class Layout extends React.Component {
           isOpen={this.state.menu}
         />
         
+        <NavBar/>
 
         <main>
-          <div className={jobsClasses.mainContainer}>
-            <NavBar/>
-              {this.props.children}
-            <Footer/>
-          </div>
+          {this.props.children}
         </main>
+        
+        <Footer/>
       </div>
     );
   }

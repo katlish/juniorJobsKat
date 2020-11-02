@@ -1,5 +1,5 @@
 .Button {
-  height: 49px;
+  height: fit-content;
   border-radius: 4px;
   background-color: #BB86FC;
   color: #000000;
@@ -11,6 +11,8 @@
   border-width: 0;
   width: fit-content;
   min-width: 81px;
+  margin: 8px;
+  padding: 11px;
 }
 
 
@@ -28,6 +30,8 @@
   cursor: not-allowed;
 }
 
+
+
 .error {
   background: #CF6679;
 }
@@ -35,6 +39,5 @@
 
 
 .primary {
-  background: #2884f6;
-  color: #fff;
+  background-color: rgb(187 247 117 / 78%);
 }

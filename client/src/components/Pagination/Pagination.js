@@ -19,7 +19,8 @@ const useStylesMobileStepper = makeStyles({
 const useStylesGeneral = makeStyles({
     root: {
       background: 'transparent',
-      color: '#BB86FC'
+      color: '#BB86FC',
+      padding: "0"
     },
     disabled: { 
         color: "#BB86FC !important", 

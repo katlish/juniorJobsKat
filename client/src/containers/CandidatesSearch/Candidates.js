@@ -8,7 +8,7 @@ import Candidate from './Candidate';
 
 import { fetchCandidates } from "../../store/actions/candidate";
 
-const NUM_OF_CANDIDATES_ON_PAGE = 2;
+const NUM_OF_CANDIDATES_ON_PAGE = 10;
 
 
 class Cnadidates extends Component {

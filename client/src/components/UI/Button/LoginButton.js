@@ -4,17 +4,10 @@ import { NavLink } from "react-router-dom";
 
 
 function LoginButton(props) {
-
-    function loginHandler() {
-      console.log("LoginButton clicked")
-    };
-
     return (
-      
         <NavLink
             to="/auth"
             exact={true}
-            onClick={loginHandler}
             className={classes.LoginButton}
           >
             LOG IN

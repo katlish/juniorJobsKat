@@ -1,4 +1,4 @@
-.CurrentPageBtn {
+.CurrentPageBtnDiv {
     height: 32px;
     width: 120px;
     display: inline-flex;
@@ -16,3 +16,9 @@
     text-decoration: none;
 }
 
+
+
+.CurrentPageBtnLink:hover {
+    color: #BB86FC;
+    border-bottom: 1.5px solid #BB86FC;
+}

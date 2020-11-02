@@ -2,17 +2,15 @@ import React from 'react';
 import classes from './NavBar.css'
 import connect from "react-redux/lib/connect/connect";
 import Logo from '../Logo/Logo'
-import LoginButton from '../LoginButton/LoginButton'
-import SignUpButton from '../SignUpButton/SignUpButton'
-import CurrentPageBtn from '../CurrentPageBtn/CurrentPageBtn'
+import LoginButton from '../Button/LoginButton'
+import StyledButton from '../Button/StyledButton'
+import CurrentPageBtn from '../Button/CurrentPageBtn'
 
 // TODO: after connect border-bottom activeStyle is not working in CurrentPageBtn
 class NavBar extends React.Component {
   state = {
     menu: false
   };
-
-  // isAuthenticated={this.props.isAuthenticated}
 
   render() {
     return (
@@ -25,7 +23,13 @@ class NavBar extends React.Component {
             <CurrentPageBtn text="CANDIDATES" to="/candidatesSearch"/>
         </div>
         <div className={classes.NavBarRightDiv}>
-            {(!this.props.isAuthenticated) ? <LoginButton/> : <SignUpButton />}
+            {(!this.props.isAuthenticated) ? 
+            <LoginButton/> 
+            : 
+            <StyledButton
+              to="/candidate-creator"
+              text="I AM LOOKING FOR A JOB"
+            />}
         </div>
       </div>
     );

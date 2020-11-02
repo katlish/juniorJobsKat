@@ -11,6 +11,7 @@ import { autoLogin } from "./store/actions/auth";
 import JobsSearch from "./containers/JobsSearch/JobsSearch";
 import CandidatesSearch from './containers/CandidatesSearch/CandidatesSearch'
 import CandidateCreator from "./containers/CandidateCreator/CandidateCreator";
+import CandidateSuccess from './containers/SuccessPage/CandidateSuccess';
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
         <Switch>
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/candidate-creator" component={CandidateCreator} />
+          <Route path="/candidateSuccess" component={CandidateSuccess} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
           <Route path="/quizList" component={QuizList} />

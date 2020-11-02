@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import classes from "./Auth.css";
-import Button from "../../components/UI/Button/Button";
+import StyledButton from '../../components/UI/Button/StyledButton'
 import Input from "../../components/UI/Input/Input";
-import { NavLink } from "react-router-dom";
 import is from "is_js";
 import { connect } from "react-redux";
 import { auth } from "../../store/actions/auth";
@@ -138,27 +137,24 @@ class Auth extends Component {
           <form onSubmit={this.submitHandler} className={classes.authForm}>
             {this.renderInputs()}
 
-            <Button
-              onClick={this.loginHandler}
-              disabled={!this.state.isFormValid}
-            >
-              <NavLink
-                  to="/candidate-creator"
-                  exact={true}
+            <div className={classes.buttonsForm}>
+                <StyledButton
                   onClick={this.loginHandler}
-                  className={classes.buttonLink}
-                >
-                  LOG IN
-              </NavLink>
-            </Button>
+                  to="/candidatesSearch"
+                  text="LOG IN"
+                  size="big"
+                  disabled={!this.state.isFormValid}
+                />
 
-            {/* <Button
-              type="primary"
-              onClick={this.registerHandler}
-              disabled={!this.state.isFormValid}
-            >
-              Sign up
-            </Button> */}
+                <StyledButton
+                  onClick={this.registerHandler}
+                  to="/candidatesSearch"
+                  text="SIGN UP"
+                  size="big"
+                  bgcolor="green"
+                  disabled={!this.state.isFormValid}
+                />
+            </div>
           </form>
       </div>
     );

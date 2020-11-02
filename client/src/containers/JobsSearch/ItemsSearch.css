@@ -148,6 +148,9 @@
   background: #fff;
   margin: 5px 0;
 }
+
+
+
 .itemLogo {
   height: 100%;
   width: 100%;
@@ -170,5 +173,4 @@
   cursor: pointer;
   color: darkgray;
 }
-
 

@@ -31,6 +31,13 @@
   padding: 30px;
 }
 
+.buttonsForm {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+}
+
 .buttonLink {
   color: #000000;
   font-size: 14px;
@@ -40,9 +47,7 @@
   text-decoration: none;
 }
 
-.buttonLink:disabled {
-  cursor: not-allowed;
-}
+
 
 /* Small phones to small tablets: from 520px to 0px*/
 @media only screen and (max-width: 520px) {

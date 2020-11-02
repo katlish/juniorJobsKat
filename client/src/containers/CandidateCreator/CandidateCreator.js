@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./CandidateCreator.css";
-import Button from "../../components/UI/Button/Button";
+import StyledButton from '../../components/UI/Button/StyledButton';
 import {
   createControl,
   validate,
@@ -14,34 +14,44 @@ import {
 } from "../../store/actions/createCandidate";
 
 
-// TODO: add all fields
+// TODO: add dd list for Jobs input 
+// TODO: add upload picture
+// TODO: description should be big input
+// TODO: on submit href="actionSuccess" - WHY NO POST CANDIDATE????
 function createFormCntrls() {
   return {
     name: createControl(
       {
-        label: "Enter your full name",
+        label: "Name",
         errorMessage: "Name is a must field!"
       },
       { required: true }
     ),
     yearsOfExperience: createControl(
         {
-          label: "Enter your experience",
+          label: "My experience in years",
           errorMessage: "Experience is a must field!"
         },
         { required: true }
       ),
     jobs: createControl(
         {
-          label: "Which job are u looking for?",
-          errorMessage: "Job is a must field!"
+          label: "Developer position that I'm looking for",
+          errorMessage: "Position is a must field!"
         },
         { required: true }
       ),
     location: createControl(
       {
-        label: "Where do u from?",
+        label: "My location is",
         errorMessage: "Location is a must field!"
+      },
+      { required: true }
+    ),
+    description: createControl(
+      {
+        label: "Short description about myself",
+        errorMessage: "Description is a must field!"
       },
       { required: true }
     )
@@ -60,31 +70,34 @@ class CandidateCreator extends Component {
   };
 
 
-  addCandidateHandler = event => {
-    event.preventDefault();
-
+  addCandidateHandler = () => {
     const {
       name,
       yearsOfExperience,
       jobs,
-      location
+      location,
+      description
     } = this.state.formControls;
 
     const candidate = {
       name: name.value,
       yearsOfExperience: yearsOfExperience.value,
       jobs: jobs.value,
-      location: location.value
+      location: location.value,
+      description: description.value
     };
-
+    console.log("before createCandidate")
     this.props.createCandidate(candidate);
+    console.log("after createCandidate")
 
     this.setState({
       isFormValid: false,
       formControls: createFormCntrls()
     });
-
+    console.log("before finishCreateCandidate")
     this.props.finishCreateCandidate();
+    console.log("before finishCreateCandidate")
+
   };
 
 
@@ -135,12 +148,13 @@ class CandidateCreator extends Component {
           <form onSubmit={this.submitHandler} className={classes.authForm}>
             {this.renderControls()}
 
-            <Button
-              onClick={this.addCandidateHandler}
-              disabled={!this.state.isFormValid}
-            >
-              SUBMIT MY CANDIDATURE
-            </Button>
+            <StyledButton
+                  onClick={this.addCandidateHandler}
+                  to="/candidateSuccess"
+                  text="SUBMIT MY CANDIDATURE"
+                  size="big"
+                  disabled={!this.state.isFormValid}
+            />
           </form>
       </div>
     );

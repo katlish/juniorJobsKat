@@ -4,24 +4,20 @@ const MY_API = "AIzaSyAR9cV4DRwNYqZPuECGw8qCmPVPlEmcjH0";
 
 
 export default function Map (props) {
-    if (props.address === 'Remote') {
-      return <h1> Remote Job </h1>
-    }else{
+  
+  const _url = `https://www.google.com/maps/embed/v1/place?key=${
+    MY_API
+  }&q=${props.address}`;
 
-      const _url = `https://www.google.com/maps/embed/v1/place?key=${
-        MY_API
-      }&q=${props.address}`;
-
-      return <iframe
-              id="map"
-              title="map"
-              frameBorder="0"
-              width="100%"
-              height="100%"
-              scrolling="no"
-              src={_url}
-            />
-    }
+  return <iframe
+          id="map"
+          title="map"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          scrolling="no"
+          src={_url}
+        />
 }
 
 // export default class Map extends Component {

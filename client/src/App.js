@@ -12,6 +12,7 @@ import JobsSearch from "./containers/JobsSearch/JobsSearch";
 import CandidatesSearch from './containers/CandidatesSearch/CandidatesSearch'
 import CandidateCreator from "./containers/CandidateCreator/CandidateCreator";
 import CandidateSuccess from './containers/SuccessPage/CandidateSuccess';
+import SignUpSuccess from './containers/SuccessPage/SignUpSuccess';
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
         <Route path="/quiz/:id" component={Quiz} />
         <Route path="/quizList" component={QuizList} />
         <Route path="/candidatesSearch" component={CandidatesSearch} />
+        <Route path="/signUpSuccess" component={SignUpSuccess} />
         <Route path="/" exact component={JobsSearch} />
         <Redirect to="/" />
       </Switch>
@@ -37,6 +39,7 @@ class App extends Component {
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/candidate-creator" component={CandidateCreator} />
           <Route path="/candidateSuccess" component={CandidateSuccess} />
+          <Route path="/signUpSuccess" component={SignUpSuccess} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
           <Route path="/quizList" component={QuizList} />

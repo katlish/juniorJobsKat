@@ -5,9 +5,8 @@
   bottom: 0;
   width: 80%;
   max-width: 300px;
-  padding: 20px 10px;
   box-sizing: border-box;
-  background: #fff;
+  background: #272727;
   transform: translateX(0px);
   transition: transform 0.22s ease-in;
   z-index: 90;
@@ -19,19 +18,23 @@
 
 .Drawer ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  width: 100%;
+  height: fit-content;
 }
 
 .Drawer ul li {
+  width: 100%;
   margin-bottom: 15px;
+  box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.75);
+  padding: 0 0 14px 0;
 }
 
 .Drawer ul li a {
-  color: #363d54;
+  width: 100%;
+  color: #fff;
   font-size: 20px;
   text-decoration: none;
-  background-color: #fff;
   position: relative;
   padding: 0 20px 10px 20px;
   transition: opacity 0.3s;

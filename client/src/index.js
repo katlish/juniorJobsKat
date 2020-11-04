@@ -9,6 +9,9 @@ import { Provider } from "react-redux";
 import rootReducer from "./store/reducers/rootReducer";
 import thunk from "redux-thunk";
 
+(() => {
+  console.log('webpack worked')
+})()
 
 //Devtools for redux
 const composeEnhancers =

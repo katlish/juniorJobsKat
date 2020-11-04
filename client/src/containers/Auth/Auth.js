@@ -148,7 +148,7 @@ class Auth extends Component {
 
                 <StyledButton
                   onClick={this.registerHandler}
-                  to="/candidatesSearch"
+                  to="/signUpSuccess"
                   text="SIGN UP"
                   size="big"
                   bgcolor="green"

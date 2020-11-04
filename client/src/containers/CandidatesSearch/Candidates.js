@@ -78,9 +78,9 @@ class Cnadidates extends Component {
                                   title: candidate.name, 
                                   subtitle: candidate.jobs, 
                                   location: candidate.location, 
-                                  logo: "", 
-                                  description: candidate.yearsOfExperience, 
-                                  url: ""
+                                  logo: "https://www.flaticon.com/svg/static/icons/svg/1484/1484861.svg", 
+                                  description: `My experience in years: ${candidate.yearsOfExperience} <br/>${candidate.description}`, 
+                                  url: candidate.url
                                 }
                               });
                             }}/>

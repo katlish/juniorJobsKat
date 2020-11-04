@@ -9,3 +9,6 @@
   margin: 10px;
 }
 
+.LoginButton:hover {
+  color: #fb6aac;
+}

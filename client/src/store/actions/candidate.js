@@ -20,7 +20,9 @@ export function fetchCandidates() {
           name: response.data[candidate][0].name,
           yearsOfExperience: response.data[candidate][0].yearsOfExperience,
           jobs: response.data[candidate][0].jobs,
-          location: response.data[candidate][0].location
+          location: response.data[candidate][0].location,
+          description: response.data[candidate][0].description,
+          url: response.data[candidate][0].url
         });
       });
     

@@ -1,6 +1,8 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
+import withWidth from '@material-ui/core/withWidth';
+
 import Map from "../../Map/Map";
 import classes from "./CardModal.css";
 
@@ -8,13 +10,14 @@ import classes from "./CardModal.css";
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
-  
-export default function CardModal({cardItem, open, handleClose}) {
+
+
+function CardModal({cardItem, open, handleClose}) {
     
     if (!cardItem.title) {
         return <div/>
     }
-  
+    console.log("!!!!!!!!cardItem - ", cardItem);
     return (
       <div>
         <Dialog
@@ -30,7 +33,12 @@ export default function CardModal({cardItem, open, handleClose}) {
               {cardItem.title} - {cardItem.subtitle}
             </div>
             <div className={classes.CardMapContainer}>
-                <Map address={cardItem.location} />
+                {
+                  (cardItem.location.toLowerCase().includes("remote") || cardItem.title.toLowerCase().includes("remote")) ? 
+                    <div className={classes.CardRemote}>Remote</div> 
+                    : 
+                    <Map address={cardItem.location}/>
+                }
                 <img className={classes.CardLogoRound} src={cardItem.logo} alt=""/>
             </div>
             <div 
@@ -42,8 +50,8 @@ export default function CardModal({cardItem, open, handleClose}) {
                 <div onClick={handleClose} className={classes.CardModalButtons}>
                   CLOSE
                 </div>
-                <a href={cardItem.url} target="_blank" rel="noopener noreferrer" className={classes.CardModalButtons}>
-                  MORE INFO
+                <a disabled={(cardItem.url===null || "")} href={cardItem.url} target="_blank" rel="noopener noreferrer" className={classes.CardModalButtons}>
+                  CONTACT INFO
                 </a>
               </div>
           </div>
@@ -52,3 +60,4 @@ export default function CardModal({cardItem, open, handleClose}) {
       </div>
     );
   } 
+  export default withWidth()(CardModal);

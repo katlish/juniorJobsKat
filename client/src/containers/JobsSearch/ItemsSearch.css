@@ -145,7 +145,7 @@
   align-items: center;
   height: 30%;
   width: 100%;
-  background: #fff;
+  background: linear-gradient(-19deg, #BB86FC 0%, #7969e6 66%);
   margin: 5px 0;
 }
 
@@ -167,7 +167,10 @@
   padding: 3%;
   text-align: end;
 }
-  
+
+.itemButton:hover {
+  color: #fb6aac;
+}
 
 .itemCard:hover {
   cursor: pointer;

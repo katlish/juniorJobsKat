@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "../../containers/JobsSearch/ItemsSearch.css";
 
 export default function Candidate({candidate, onClick}) {
-    console.log("candidate - ",candidate)
+    console.log("!!!! candidate - ",candidate)
     return (
         <div onClick={onClick} className={classes.itemCard}>
             <div className={classes.itemHeaderContainer}>
@@ -10,7 +10,7 @@ export default function Candidate({candidate, onClick}) {
                     <div className={classes.itemSubTitle}>{candidate.jobs}</div>
             </div>
             <div className={classes.itemLogoContainer}>
-                <img className={classes.itemLogo} src="https://www.flaticon.com/svg/static/icons/svg/1484/1484861.svg" alt=""/>
+                <img className={classes.itemLogo} src="https://www.flaticon.com/svg/static/icons/svg/1484/1484861.svg" alt="Candidate Logo"/>
             </div>
             <div className={classes.itemBottomDiv}>
                 <div>Experience in years: {candidate.yearsOfExperience}</div>

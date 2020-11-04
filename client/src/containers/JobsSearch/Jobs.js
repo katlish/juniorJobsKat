@@ -1,17 +1,25 @@
 import React from 'react';
 import Job from './Job'
 import CardModal from '../../components/UI/CardModal/CardModal'
+import CardModalNew from '../../components/UI/CardModal/CardModalNew'
 import Pagination from '../../components/Pagination/Pagination'
 import classes from "./ItemsSearch.css";
 
 const NUM_OF_JOBS_ON_PAGE = 20
 
+function sortByDateDesc(jobs) {
+    const sortedJobs = jobs.sort(function(job1,job2){
+        return new Date(job2.created_at) - new Date(job1.created_at);
+      });
+    return  sortedJobs; 
+}
 
 export default function Jobs({jobs}) {
     
-    const numJobs = jobs.length
+    const sortedJobs = sortByDateDesc(jobs);
+    const numJobs = sortedJobs.length;
     const [activeStep, setActiveStep] = React.useState(0);
-    const jobsOnPage = jobs.slice(activeStep * NUM_OF_JOBS_ON_PAGE , (activeStep * NUM_OF_JOBS_ON_PAGE + NUM_OF_JOBS_ON_PAGE))
+    const jobsOnPage = sortedJobs.slice(activeStep * NUM_OF_JOBS_ON_PAGE , (activeStep * NUM_OF_JOBS_ON_PAGE + NUM_OF_JOBS_ON_PAGE))
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -49,7 +57,9 @@ export default function Jobs({jobs}) {
             </div>
             
             <CardModal open={open} cardItem={cardModalItem} handleClose={handleClose}/>
-
+            {/* <CardModalNew cardItem={cardModalItem} onClose={handleClose} show={open}>
+                <p>{cardModalItem.title}</p>
+            </CardModalNew> */}
             <div className={classes.itemsList}>
                 {
                     jobsOnPage.map(
@@ -62,7 +72,7 @@ export default function Jobs({jobs}) {
             </div>
 
             <Pagination 
-                itemsList={jobs} 
+                itemsList={sortedJobs} 
                 activeStep={activeStep}
                 handleNext={handleNext} 
                 handleBack={handleBack}

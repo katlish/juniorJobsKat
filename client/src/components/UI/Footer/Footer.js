@@ -1,10 +1,43 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import connect from "react-redux/lib/connect/connect";
 import classes from './Footer.css';
 import StyledButton from '../Button/StyledButton';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import GitHubIcon from '@material-ui/icons/GitHub';
+
+
+
+const StyledLinkedInIcon = withStyles({
+  root: {
+    color: "#bb86fcc2",
+    '&:hover': {
+      color: "#0966C2"
+    }
+  }
+})(LinkedInIcon);
+
+const StyledMailOutlineIcon = withStyles({
+  root: {
+    color: "#bb86fcc2",
+    '&:hover': {
+      color: "#CA4C45"
+    }
+  }
+})(MailOutlineIcon);
+
+const StyledGitHubIcon = withStyles({
+  root: {
+    color: "#bb86fcc2",
+    height: "21px",
+    '&:hover': {
+      color: "#02F39F"
+    }
+  }
+})(GitHubIcon);
+
+
 
 class Footer extends React.Component {
   state = {
@@ -19,13 +52,13 @@ class Footer extends React.Component {
         </div>
         <div className={classes.socialLinksContainer}>
           <a href="https://www.linkedin.com/in/katyalishnevsky/" target="_blank" className={classes.socialLinks}>
-            <LinkedInIcon style={{ color: "#bb86fcc2" }}/>
+            <StyledLinkedInIcon /> 
           </a>
           <a href="mailto:radistkakat89@gmail.com?subject=Hey%20Katia!" className={classes.socialLinks}>
-            <MailOutlineIcon style={{ color: "#bb86fcc2" }}/>
+            <StyledMailOutlineIcon />
           </a>
           <a href="https://github.com/katlish" target="_blank" className={classes.socialLinks}>
-            <GitHubIcon style={{ color: "#bb86fcc2", height: "21px" }}/>
+            <StyledGitHubIcon />
           </a>
         </div>
         {(this.props.isAuthenticated) ? 

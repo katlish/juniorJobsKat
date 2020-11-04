@@ -17,7 +17,7 @@ import {
 // TODO: add dd list for Jobs input 
 // TODO: add upload picture
 // TODO: description should be big input
-// TODO: on submit href="actionSuccess" - WHY NO POST CANDIDATE????
+//TODO: error handler
 function createFormCntrls() {
   return {
     name: createControl(
@@ -54,6 +54,13 @@ function createFormCntrls() {
         errorMessage: "Description is a must field!"
       },
       { required: true }
+    ),
+    url: createControl(
+      {
+        label: "Link to my LinkedIn profile",
+        errorMessage: "Link is a must field!"
+      },
+      { required: true }
     )
     
   };
@@ -76,7 +83,8 @@ class CandidateCreator extends Component {
       yearsOfExperience,
       jobs,
       location,
-      description
+      description,
+      url
     } = this.state.formControls;
 
     const candidate = {
@@ -84,7 +92,8 @@ class CandidateCreator extends Component {
       yearsOfExperience: yearsOfExperience.value,
       jobs: jobs.value,
       location: location.value,
-      description: description.value
+      description: description.value,
+      url: url.value
     };
     console.log("before createCandidate")
     this.props.createCandidate(candidate);

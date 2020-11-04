@@ -3,10 +3,35 @@ import classes from "./ItemsSearch.css";
 import Jobs from './Jobs'
 import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
 import CustomSwitch from '../../components/UI/Switch/Switch'
-
+import countriesJson from '../../components/UI/CountrySelect/countries.json'
 
 const JOBS_API_URL = '/api/jobs'
 const HASH_FOR_JOBS_IN_GITHUB = 'github'
+
+function countriesParser(allJobs) {
+  const standartCountries = countriesJson.map(c => c.country);
+  const uniqueLocations = [...new Set(allJobs.map(job => {
+      const longLocation = job.location;
+      return longLocation.split(/[ ,/]+/);
+    }).flat())];
+  
+  const locationsWithStandartNames = uniqueLocations.map(loc => {
+    if (["USA", "US", "CA"].indexOf(loc)!== -1) {
+      return "United States"
+    }
+    if (loc.includes("Russia")) {
+      return "Russian Federation"
+    }
+    if (loc.includes("UK")) {
+      return "United Kingdom"
+    }
+    return loc;
+  })
+
+  const locationsWithoutSpecialSymbols = locationsWithStandartNames.map(l => l.replace(/[()]/g, ""));
+  const locationsExistingInCountriesList = [...new Set(locationsWithoutSpecialSymbols.filter(loc => (standartCountries.indexOf(loc)!== -1)))];
+  return locationsExistingInCountriesList;
+}
 
 async function fetchJobsFromAPI(updateFullList, updateCountryList) {
   const res = await fetch(`${JOBS_API_URL}?hash=${HASH_FOR_JOBS_IN_GITHUB}`,{
@@ -14,8 +39,8 @@ async function fetchJobsFromAPI(updateFullList, updateCountryList) {
   })
   const json = await res.json()
   updateFullList(json)
-  //TODO:parser
-  updateCountryList(["USA", "United Kingdom", "Canada", "Russia", "Poland"])
+  const relevantCountries = countriesParser(json);
+  updateCountryList(relevantCountries);
 }
 
 function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRemote){
@@ -28,7 +53,7 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
     if (country !== "all" && country !== null && country !== "") {
       finallyFilteredCountries = finallyFilteredCountries.filter(job => job.location.includes(country));
     }
-    finallyFilteredCountries = finallyFilteredCountries.filter(job => job.location.includes("remote"));
+    finallyFilteredCountries = finallyFilteredCountries.filter(job => (job.location.toLowerCase().includes("remote")||job.title.toLowerCase().includes("remote")));
     
     updateFilteredJobs(finallyFilteredCountries);
   } else {

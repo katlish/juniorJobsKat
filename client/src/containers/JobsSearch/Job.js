@@ -2,7 +2,6 @@ import React from 'react';
 import classes from "./ItemsSearch.css";
 import Tooltip from '@material-ui/core/Tooltip';
 
-
 export default function Job({job, onClick}) {
     const longJobTitle = job.title;
     let shortJobTitle = longJobTitle;
@@ -33,8 +32,8 @@ export default function Job({job, onClick}) {
                         <div className={classes.itemSubTitle}>{shortJobCompany}</div>
                     </Tooltip>
                 </div>
-                <div className={classes.itemLogoContainer}>
-                    <img className={classes.itemLogo} src={job.company_logo} alt=""/>
+                <div className={classes.itemLogoContainer} style={{background: "white"}}>
+                    <img className={classes.itemLogo} src={job.company_logo}  alt="Logo link failed"/>
                 </div>
                 <div className={classes.itemBottomDiv}>
                     <Tooltip title={longJobLocation} placement="bottom-start">

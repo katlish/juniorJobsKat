@@ -182,6 +182,14 @@ module.exports = {
         ],
         include: paths.appSrc
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'style-loader',
+      //     { loader: 'css-loader', options: { importLoaders: 1 } },
+      //     'postcss-loader'
+      //   ]
+      // },
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall

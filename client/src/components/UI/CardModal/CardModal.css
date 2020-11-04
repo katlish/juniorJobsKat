@@ -8,6 +8,33 @@
     background-color: #272727e8;;
 }
 
+/* Small phones to small tablets: from 625px to 0px*/
+@media only screen and (max-width: 1px) {
+    .CardModalContainer {  
+        height: 392px;
+        width: 336px;
+    }
+    .CardModalTitle {
+        font-size: 10px;
+        letter-spacing: 0.12px;
+        line-height: 18px;
+        padding: 15px 19px;
+    }
+    .CardMapContainer {
+        height: 105px;
+    }
+    .CardRemote {
+        font-size: 15px;
+        color: #BB86FC;
+    }
+    .CardLogoRound {
+        height: 84px;
+        width: 84px;
+        right: 0px;
+    }
+}
+
+
 .CardMapContainer {
     display: flex;
     flex-direction: column;
@@ -18,6 +45,20 @@
     margin: 5px 0;
     position: relative;
   }
+
+  .CardRemote {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(39deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+    padding-left: 13%;
+    color: rgba(255,255,255,0.87);
+    font-size: 27px;
+}
+
 .CardModalTitle {
     color: rgba(255,255,255,0.87);
     font-size: 16px;
@@ -68,7 +109,17 @@
     
 }
 
+.CardModalButtons[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.CardModalButtons:hover {
+    color: #fb6aac; 
+}
+
 .CardModalDescription a {
     text-decoration: none;
     color: #BB86FC;
 }
+

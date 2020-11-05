@@ -22,7 +22,8 @@ export function fetchCandidates() {
           jobs: response.data[candidate][0].jobs,
           location: response.data[candidate][0].location,
           description: response.data[candidate][0].description,
-          url: response.data[candidate][0].url
+          url: response.data[candidate][0].url,
+          created_at: response.data[candidate][0].created_at
         });
       });
     

@@ -15,6 +15,7 @@ export default function Candidate({candidate, onClick}) {
             <div className={classes.itemBottomDiv}>
                 <div>Experience in years: {candidate.yearsOfExperience}</div>
                 <div>Location: {candidate.location}</div>
+                <div>Date: {candidate.created_at.split(' ').slice(0,3).join(' ')}</div>
             </div>
             <div className={classes.itemButton}>
                 MORE INFO

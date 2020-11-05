@@ -1,54 +1,177 @@
 .modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* opacity: 0;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none; */
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+.modalShow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  pointer-events: visible;
+}
+  
+
+  
+.CardModalContainer {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+  height: 600px;
+  width: 500px;
+  background-color: #373737;
+}
+
+.modalShow .CardModalContainer{
+  transform: translateY(0);
+}
+
+.CardMapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  margin: 5px 0;
+  position: relative;
+}
+
+.CardRemote {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(39deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+}
+
+.CardRemoteLogo {
+  color: rgba(255,255,255,0.87);
+  font-size: 27px;
+  padding: 20px;
+}
+  
+.CardModalTitle {
+  color: rgba(255,255,255,0.87);
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+  padding: 20px 24px;
+}
+  
+.CardLogoRound {
+  height: 120px;
+  width: 120px;
+  border-radius: 100px;
+  object-fit: contain;
+  position: absolute;
+  right: 0px;
+  z-index: 1000;
+  margin: 20px;
+  background: white;
+}
+
+.CardModalDescription {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  line-height: 20px;
+  padding: 24px;
+  height: 40%;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+
+.CardModalButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items:center;
+  height: 10%;
+  width: 100%;
+  border-top: 1.3px solid rgba(255,255,255,0.3);
+}
+.CardModalButtons {
+  color: #BB86FC;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  margin: 0 21px 0 0;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+.CardModalButtons[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.CardModalButtons:hover {
+  color: #fb6aac; 
+}
+
+.CardModalDescription a {
+  text-decoration: none;
+  color: #BB86FC;
+}
+
+
+  
+/* Small phones to small tablets: from 625px to 0px*/
+@media only screen and (max-width: 625px) {
+  .CardModalContainer {  
+      height: 360px;
+      width: 300px;
   }
-  
- .modal.enter-done {
-    opacity: 1;
-    pointer-events: visible;
+  .CardModalTitle {
+    font-size: 13px;
+    letter-spacing: 0.12px;
+    line-height: 18px;
+    padding: 15px 19px 0 15px;
   }
-  
-  .modal.exit {
-    opacity: 0;
-  } 
-  
-.modalContent {
-    width: 500px;
-    background-color: #fff;
-/* transition: all 0.3s ease-in-out;
-transform: translateY(-200px); */
-}
-  
-.modal.enter-done .modalContent {
-    transform: translateY(0);
-}
-  
-.modal.exit .modalContent {
-    transform: translateY(-200px);
-} 
-  
-.modalHeader,
-.modalFooter {
-    padding: 10px;
-}
-  
-  .modalTitle {
+  .CardMapContainer {
+    height: 24%;
+  }
+  .CardRemoteLogo {
+      font-size: 15px;
+  }
+  .CardLogoRound {
+      height: 84px;
+      width: 84px;
+      right: 0px;
+  }
+  .CardModalDescription {
+    font-size: 12px;
+    letter-spacing: 0.25px;
+    line-height: 16px;
+    padding: 0 16px;
     margin: 0;
   }
-  
-  .modalBody {
-    padding: 10px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+  .CardModalButtons {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25px;
   }
-  
+}

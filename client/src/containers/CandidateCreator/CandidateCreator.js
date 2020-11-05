@@ -93,7 +93,8 @@ class CandidateCreator extends Component {
       jobs: jobs.value,
       location: location.value,
       description: description.value,
-      url: url.value
+      url: url.value,
+      created_at: new Date().toUTCString()
     };
     console.log("before createCandidate")
     this.props.createCandidate(candidate);

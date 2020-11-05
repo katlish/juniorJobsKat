@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classes from "../JobsSearch/ItemsSearch.css";
 import Loader from "../../components/UI/Loader/Loader";
 import Pagination from '../../components/Pagination/Pagination'
-import CardModal from '../../components/UI/CardModal/CardModal'
+import CardModalNew from '../../components/UI/CardModal/CardModalNew'
 import Candidate from './Candidate';
 
 import { fetchCandidates } from "../../store/actions/candidate";
@@ -51,8 +51,16 @@ class Cnadidates extends Component {
     });
   };
 
+  sortByDateDesc = (candidates) => {
+    const sortedCandidates = candidates.sort(function(can1,can2){
+        return new Date(can2.created_at) - new Date(can1.created_at);
+      });
+    return  sortedCandidates; 
+  }
+
+
   render() {
-    const candidatesArr = this.props.candidates;
+    const candidatesArr = this.sortByDateDesc(this.props.candidates);
     const candidatesOnPage = candidatesArr.slice(this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE , 
                                   (this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE + NUM_OF_CANDIDATES_ON_PAGE));
 
@@ -62,12 +70,8 @@ class Cnadidates extends Component {
                 <Loader />
               ) : (
                     <div className={classes.itemsContainer}>
-                      <CardModal 
-                        open={this.state.open} 
-                        cardItem={this.state.cardModalItem}
-                        handleClose={this.handleClose}
-                      />
-                      
+                      <CardModalNew cardItem={this.state.cardModalItem} handleClose={this.handleClose} open={this.state.open}/>
+                          
                       <div className={classes.itemsList}>
                         {candidatesOnPage.map(candidate => 
                           <Candidate key={candidate.id}  candidate={candidate} onClick={() => {
@@ -80,7 +84,8 @@ class Cnadidates extends Component {
                                   location: candidate.location, 
                                   logo: "https://www.flaticon.com/svg/static/icons/svg/1484/1484861.svg", 
                                   description: `My experience in years: ${candidate.yearsOfExperience} <br/>${candidate.description}`, 
-                                  url: candidate.url
+                                  url: candidate.url,
+                                  created_at: candidate.created_at
                                 }
                               });
                             }}/>

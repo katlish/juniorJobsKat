@@ -1,6 +1,5 @@
 import React from 'react';
 import Job from './Job'
-import CardModal from '../../components/UI/CardModal/CardModal'
 import CardModalNew from '../../components/UI/CardModal/CardModalNew'
 import Pagination from '../../components/Pagination/Pagination'
 import classes from "./ItemsSearch.css";
@@ -56,10 +55,8 @@ export default function Jobs({jobs}) {
                 {numJobs} Entry Level Software Jobs Found
             </div>
             
-            <CardModal open={open} cardItem={cardModalItem} handleClose={handleClose}/>
-            {/* <CardModalNew cardItem={cardModalItem} onClose={handleClose} show={open}>
-                <p>{cardModalItem.title}</p>
-            </CardModalNew> */}
+            <CardModalNew cardItem={cardModalItem} handleClose={handleClose} open={open}/>
+               
             <div className={classes.itemsList}>
                 {
                     jobsOnPage.map(

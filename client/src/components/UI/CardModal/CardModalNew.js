@@ -1,32 +1,66 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
-import "./CardModalNew.css";
+import Map from "../../Map/Map";
 
-const CardModalNew = props => {
-  if (!props.show) {
-    return null;
+import classes from "./CardModalNew.css";
+
+function CardModalNew({cardItem, open, handleClose}) {
+  if (!cardItem.title) {
+    return <div/>
   }
-  return (
+  console.log("!!!!!!!!cardItem - ", cardItem);
+  return ReactDOM.createPortal(
     // <CSSTransition 
     //     in={props.show}
     //     unmountOnExit
     //     timeout={{enter: 0, exit: 300}}
+    //     classNames={{
+    //       // appear: 'my-appear',
+    //       // appearActive: 'my-active-appear',
+    //       // appearDone: 'my-done-appear',
+    //       //enter: classes.modalEnter,
+    //      // enterActive: classes.modalEnterActive,
+    //       enterDone: classes['enter-done'],
+    //       exit: classes['exit'],
+    //       //exitActive: classes.modalExitActive,
+    //       // exitDone: 'my-done-exit',
+    //      }}
     // >
-      <div className="modal" onClick={props.onClose}>
-        <div className="modalContent" onClick={e => e.stopPropagation()}>
-          <div className="modalHeader">
-            <h4 className="modalTitle">{props.cardItem.title}</h4>
-          </div>
-          <div className="modalBody">{props.cardItem.logo}</div>
-          <div className="modalFooter">
-            <button onClick={props.onClose}>
-              Close
-            </button>
+      <div className={`${open ? classes.modalShow : classes.modal}`} onClick={handleClose}>
+        <div className={classes.CardModalContainer} onClick={e => e.stopPropagation()}>
+          <div className={classes.CardModalTitle}>
+              {cardItem.title} - {cardItem.subtitle}
+            </div>
+            <div className={classes.CardMapContainer}>
+                {
+                  (cardItem.location.toLowerCase().includes("remote") || cardItem.title.toLowerCase().includes("remote")) ? 
+                    <div className={classes.CardRemote}>
+                      <div className={classes.CardRemoteLogo}>
+                        Remote
+                      </div>
+                    </div> 
+                    : 
+                    <Map address={cardItem.location}/>
+                }
+                <img className={classes.CardLogoRound} src={cardItem.logo} alt=""/>
+            </div>
+            <div 
+              className={classes.CardModalDescription} 
+              dangerouslySetInnerHTML={{__html: cardItem.description}} 
+            />
+            
+              <div className={classes.CardModalButtonsContainer}>
+                <div onClick={handleClose} className={classes.CardModalButtons}>
+                  CLOSE
+                </div>
+                <a disabled={(cardItem.url===null || "")} href={cardItem.url} target="_blank" rel="noopener noreferrer" className={classes.CardModalButtons}>
+                  CONTACT INFO
+                </a>
           </div>
         </div>
-      </div>
+      </div>,
     // </CSSTransition>
+    document.getElementById('root')
   );
 };
 

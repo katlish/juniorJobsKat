@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Layout from "./hoc/Layout/Layout";
-import Quiz from "./containers/Quiz/Quiz";
+// import Quiz from "./containers/Quiz/Quiz";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import Auth from "./containers/Auth/Auth";
-import QuizCreator from "./containers/QuizCreator/QuizCreator";
-import QuizList from "./containers/QuizList/QuizList";
+// import QuizCreator from "./containers/QuizCreator/QuizCreator";
+// import QuizList from "./containers/QuizList/QuizList";
 import connect from "react-redux/lib/connect/connect";
 import Logout from "./components/Logout/Logout";
 import { autoLogin } from "./store/actions/auth";
@@ -24,8 +24,8 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
-        <Route path="/quiz/:id" component={Quiz} />
-        <Route path="/quizList" component={QuizList} />
+        {/* <Route path="/quiz/:id" component={Quiz} />
+        <Route path="/quizList" component={QuizList} /> */}
         <Route path="/candidatesSearch" component={CandidatesSearch} />
         <Route path="/signUpSuccess" component={SignUpSuccess} />
         <Route path="/" exact component={JobsSearch} />
@@ -36,13 +36,13 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
-          <Route path="/quiz-creator" component={QuizCreator} />
+          {/* <Route path="/quiz-creator" component={QuizCreator} /> */}
           <Route path="/candidate-creator" component={CandidateCreator} />
           <Route path="/candidateSuccess" component={CandidateSuccess} />
           <Route path="/signUpSuccess" component={SignUpSuccess} />
-          <Route path="/quiz/:id" component={Quiz} />
+          {/* <Route path="/quiz/:id" component={Quiz} /> */}
           <Route path="/logout" component={Logout} />
-          <Route path="/quizList" component={QuizList} />
+          {/* <Route path="/quizList" component={QuizList} /> */}
           <Route path="/candidatesSearch" component={CandidatesSearch} />
           <Route path="/" exact component={JobsSearch} />
           <Redirect to="/" />

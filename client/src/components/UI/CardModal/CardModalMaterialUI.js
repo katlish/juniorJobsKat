@@ -4,7 +4,7 @@ import Slide from '@material-ui/core/Slide';
 import withWidth from '@material-ui/core/withWidth';
 
 import Map from "../../Map/Map";
-import classes from "./CardModal.css";
+import classes from "./CardModalMaterialUI.css";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {

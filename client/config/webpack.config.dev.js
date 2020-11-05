@@ -183,12 +183,8 @@ module.exports = {
         include: paths.appSrc
       },
       // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'style-loader',
-      //     { loader: 'css-loader', options: { importLoaders: 1 } },
-      //     'postcss-loader'
-      //   ]
+      //   test: /\.css$/i,
+      //   use: ['style-loader', 'css-loader'],
       // },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -281,14 +277,14 @@ module.exports = {
           },
           // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
           // using the extension .module.css
-          {
-            test: cssModuleRegex,
-            use: getStyleLoaders({
-              importLoaders: 1,
-              modules: true,
-              getLocalIdent: getCSSModuleLocalIdent
-            })
-          },
+          // {
+          //   test: cssModuleRegex,
+          //   use: getStyleLoaders({
+          //     importLoaders: 1,
+          //     modules: true,
+          //     getLocalIdent: getCSSModuleLocalIdent
+          //   })
+          // },
           // Opt-in support for SASS (using .scss or .sass extensions).
           // Chains the sass-loader with the css-loader and the style-loader
           // to immediately apply all styles to the DOM.

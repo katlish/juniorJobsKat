@@ -51,13 +51,13 @@ class Footer extends React.Component {
           © 2020 Katia Lishnevsky
         </div>
         <div className={classes.socialLinksContainer}>
-          <a href="https://www.linkedin.com/in/katyalishnevsky/" target="_blank" className={classes.socialLinks}>
+          <a href="https://www.linkedin.com/in/katyalishnevsky/" target="_blank" rel="noopener noreferrer" className={classes.socialLinks}>
             <StyledLinkedInIcon /> 
           </a>
           <a href="mailto:radistkakat89@gmail.com?subject=Hey%20Katia!" className={classes.socialLinks}>
             <StyledMailOutlineIcon />
           </a>
-          <a href="https://github.com/katlish" target="_blank" className={classes.socialLinks}>
+          <a href="https://github.com/katlish" target="_blank" rel="noopener noreferrer" className={classes.socialLinks}>
             <StyledGitHubIcon />
           </a>
         </div>

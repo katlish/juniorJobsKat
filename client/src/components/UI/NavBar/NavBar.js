@@ -28,7 +28,7 @@ class NavBar extends React.Component {
             : 
             <StyledButton
               to="/candidate-creator"
-              text="I AM LOOKING FOR A JOB"
+              text="ADD MY CANDIDATURE"
             />}
         </div>
       </div>

@@ -8,7 +8,7 @@ function SignUpSuccess() {
         text={`Yay! You were successfully registered! 
         Now you can add your candidature to the Candidates List!`}
         buttonTo="/candidate-creator"
-        buttonText="I AM LOOKING FOR A JOB"
+        buttonText="ADD MY CANDIDATURE"
     />
   );
 }

@@ -31,7 +31,6 @@ class Layout extends React.Component {
           onClose={this.menuCloseHndler}
           isAuthenticated={this.props.isAuthenticated}
           onToggle={this.toggleMenuHandler}
-          isOpen={this.state.menu}
         />
         
         <NavBar/>

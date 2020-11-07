@@ -10,26 +10,17 @@ const HASH_FOR_JOBS_IN_GITHUB = 'github'
 
 function countriesParser(allJobs) {
   const standartCountries = countriesJson.map(c => c.country);
-  const uniqueLocations = [...new Set(allJobs.map(job => {
+  // let locs = allJobs.map(j => j.location);
+  // console.log(locs);
+  const flatLocations = [...new Set(allJobs.map(job => {
       const longLocation = job.location;
       return longLocation.split(/[ ,/]+/);
     }).flat())];
   
-  const locationsWithStandartNames = uniqueLocations.map(loc => {
-    if (["USA", "US", "CA"].indexOf(loc)!== -1) {
-      return "United States"
-    }
-    if (loc.includes("Russia")) {
-      return "Russian Federation"
-    }
-    if (loc.includes("UK")) {
-      return "United Kingdom"
-    }
-    return loc;
-  })
-
-  const locationsWithoutSpecialSymbols = locationsWithStandartNames.map(l => l.replace(/[()]/g, ""));
+  const locationsWithoutSpecialSymbols = flatLocations.map(l => l.replace(/[()]/g, ""));
   const locationsExistingInCountriesList = [...new Set(locationsWithoutSpecialSymbols.filter(loc => (standartCountries.indexOf(loc)!== -1)))];
+  locationsExistingInCountriesList.push(...["United States","Russian Federation","United Kingdom"]);
+  locationsExistingInCountriesList.sort();
   return locationsExistingInCountriesList;
 }
 

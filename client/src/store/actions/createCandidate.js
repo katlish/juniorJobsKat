@@ -20,7 +20,7 @@ import {
   
   export function finishCreateCandidate() {
     return async (dispatch, getState) => {
-        console.log("in Actions. getState() - ", getState());
+        // console.log("in Actions. getState() - ", getState());
       await axios.post("/candidates.json", getState().createCandidate.candidate);
       dispatch(resetCandidate());
     };

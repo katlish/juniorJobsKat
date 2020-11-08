@@ -2,7 +2,6 @@ import React from 'react';
 import classes from "../../containers/JobsSearch/ItemsSearch.css";
 
 export default function Candidate({candidate, onClick}) {
-    console.log("!!!! candidate - ",candidate)
     return (
         <div onClick={onClick} className={classes.itemCard}>
             <div className={classes.itemHeaderContainer}>

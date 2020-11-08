@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Geocode from "react-geocode";
 
-export default class Map extends Component {
+export default class MapOld extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class Map extends Component {
     }
   }
 
-  async componentWillReceiveProps(nextprops) {
+  async UNSAFE_componentWillReceiveProps(nextprops) {
     const center = await this.getCenter(nextprops.address);
     this.setState({
       center: center,

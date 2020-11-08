@@ -8,7 +8,7 @@ import classes from "./Pagination.css";
 
 
 const useStylesMobileStepper = makeStyles({
-    colorPrimary: {
+    progress: {
         backgroundColor: 'rgba(187,134,252,0.38)'
     },
     barColorPrimary: {

@@ -89,7 +89,6 @@ async function fetchGithub() {
     })
     console.log('filtered down to - ', juniorJobs.length)
     const jobsWithStandartNames = countriesParser(juniorJobs);
-    jobsWithStandartNames.forEach(j => console.log(j.location));
     const success = await setAsync('github', JSON.stringify(jobsWithStandartNames))
     console.log({success})
 }

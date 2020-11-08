@@ -17,7 +17,6 @@ function CardModal({cardItem, open, handleClose}) {
     if (!cardItem.title) {
         return <div/>
     }
-    console.log("!!!!!!!!cardItem - ", cardItem);
     return (
       <div>
         <Dialog

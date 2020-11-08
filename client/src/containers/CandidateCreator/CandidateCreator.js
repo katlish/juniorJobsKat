@@ -96,18 +96,13 @@ class CandidateCreator extends Component {
       url: url.value,
       created_at: new Date().toUTCString()
     };
-    console.log("before createCandidate")
     this.props.createCandidate(candidate);
-    console.log("after createCandidate")
 
     this.setState({
       isFormValid: false,
       formControls: createFormCntrls()
     });
-    console.log("before finishCreateCandidate")
     this.props.finishCreateCandidate();
-    console.log("before finishCreateCandidate")
-
   };
 
 

@@ -25,7 +25,6 @@ export default function CustomSwitch(props) {
   });
 
   const handleChange = (event) => {
-      console.log("Switch changed")
     state.checked ? props.filterByRemote(false) : props.filterByRemote(true);
     setState({ ...state, [event.target.name]: event.target.checked });
   };

@@ -35,9 +35,9 @@ async function fetchJobsFromAPI(updateFullList, updateCountryList) {
 }
 
 function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRemote){
-  console.log("inside HOOK with country = ",country)
-  console.log("isRemote",isRemote)
-  console.log("allCountries",allCountries)
+  // console.log("inside HOOK with country = ",country)
+  // console.log("isRemote",isRemote)
+  // console.log("allCountries",allCountries)
 
   if (isRemote === true) {
     let finallyFilteredCountries = allCountries;
@@ -66,21 +66,21 @@ function JobsSearch() {
   const [isRemote, updateRemote] = React.useState(true)
 
   React.useEffect(() => {
-  console.log("useEffect() - fetchJobsFromAPI()")
+  // console.log("useEffect() - fetchJobsFromAPI()")
     fetchJobsFromAPI(updateFullList, updateCountryList)
   }, [])
 
   React.useEffect(() => {
-  console.log("useEffect() - useUpdateJobsByCountry()")
+  // console.log("useEffect() - useUpdateJobsByCountry()")
     useUpdateJobsByCountry(updateFilteredJobs, fullJobList, pickedCountry, isRemote)
   }, [pickedCountry,isRemote,fullJobList])
 
-  console.log("RETURN!!!")
-  console.log("fullJobList:",fullJobList)
-  console.log("countriesList:",countriesList)
-  console.log("jobsFiltered:",jobsFiltered)
-  console.log("pickedCountry:",pickedCountry)
-  console.log("isRemote:",isRemote)
+  // console.log("RETURN!!!")
+  // console.log("fullJobList:",fullJobList)
+  // console.log("countriesList:",countriesList)
+  // console.log("jobsFiltered:",jobsFiltered)
+  // console.log("pickedCountry:",pickedCountry)
+  // console.log("isRemote:",isRemote)
 
   return (
       <div className={classes.ItemsSearch}>

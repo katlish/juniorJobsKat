@@ -8,7 +8,7 @@ function CardModalNew({cardItem, open, handleClose}) {
   if (!cardItem.title) {
     return <div/>
   }
-  console.log("!!!!!!!!cardItem - ", cardItem);
+  // console.log("!!!!!!!!cardItem - ", cardItem);
   return ReactDOM.createPortal(
     // <CSSTransition 
     //     in={props.show}

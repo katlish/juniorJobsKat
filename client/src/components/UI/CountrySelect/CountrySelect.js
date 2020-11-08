@@ -13,13 +13,13 @@ function CountrySelect(props) {
   
     return (
       <div className={classes.CountrySelectContainer}>
-        <label className={classes.labelShow}  for="countries-input" id="outlined-input-label">
+        <label className={classes.labelShow}  htmlFor="countries-input" id="outlined-input-label">
           Show
         </label>
         <input list="countries-list" className={classes.CountrySelectInput} placeholder="All Available Countries"  name="countries-input" id="countries-input" onChange={handleChangeInput}/>
         <datalist id="countries-list" className={classes.CountrySelectOption}>
           {props.countriesList.map((country, i) => 
-            <div className={classes.CountrySelectOption}>
+            <div className={classes.CountrySelectOption} key={i}>
               <option key={i} value={country} className={classes.CountrySelectOption}/>
             </div>
           )}

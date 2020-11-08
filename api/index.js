@@ -9,7 +9,7 @@ const client = redis.createClient();
 const getAsync = promisify(client.get).bind(client);
 
 
-
+//TODO: env
 app.get('/api/jobs', async (req, res) => {
     const jobs = await getAsync('github')
     // console.log('number of jobs in redis is - ', JSON.parse(jobs).length)
@@ -19,5 +19,5 @@ app.get('/api/jobs', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 })

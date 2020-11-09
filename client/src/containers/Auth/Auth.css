@@ -54,4 +54,7 @@
   .authForm {  
       width: 70%;
   }
+  .pageTitle {
+    height: 70px;
+  }
 }

@@ -31,6 +31,28 @@
   padding: 30px;
 }
 
+.textAreaContainer {
+  margin-bottom: 35px;
+  width: 100%;
+  min-width: 300px;
+}
+.textAreaContainer label {
+  padding: 0;
+  display: block;
+  align-self: end;
+  margin-left: 10px;
+  color: rgba(255,255,255,0.38);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+}
+.textArea {
+    width: 98%;
+    background: inherit;
+    color: white;
+    font-family: inherit;
+    border-radius: 4px;
+}
 
 /* Small phones to small tablets: from 520px to 0px*/
 @media only screen and (max-width: 520px) {

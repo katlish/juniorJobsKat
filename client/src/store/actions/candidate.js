@@ -7,11 +7,14 @@ import {
   FINISH_CANDIDATE
 } from "./actionTypes";
 
+const CANDIDATES_API_PATH = process.env.REACT_APP_CANDIDATES_API_PATH; 
+const CANDIDATES_BASE_URL = process.env.REACT_APP_CANDIDATES_BASE_URL;
+
 export function fetchCandidates() {
   return async dispatch => {
     dispatch(fetchCandidatesStart());
     try {
-      const response = await axios.get("/candidates.json");
+      const response = await axios.get(CANDIDATES_API_PATH);
 
       const candidates = [];
       Object.keys(response.data).forEach((candidate, index) => {
@@ -59,7 +62,7 @@ export function fetchCandidateByID(candidateID) {
   return async dispatch => {
     dispatch(fetchCandidatesStart());
     try {
-      const response = await axios.get(`/candidates/${candidateID}.json`);
+      const response = await axios.get(`${CANDIDATES_BASE_URL}${candidateID}.json`);
 
       const candidate = response.data;
 

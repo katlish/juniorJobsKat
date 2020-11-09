@@ -7,6 +7,7 @@ import {
   validateForm
 } from "../../form/formFramework";
 import Input from "../../components/UI/Input/Input";
+import CountrySelect from '../../components/UI/CountrySelect/CountrySelect';
 import { connect } from "react-redux";
 import {
   createCandidate,
@@ -16,7 +17,6 @@ import {
 
 // TODO: add dd list for Jobs input 
 // TODO: add upload picture
-// TODO: description should be big input
 //TODO: error handler
 function createFormCntrls() {
   return {
@@ -105,6 +105,11 @@ class CandidateCreator extends Component {
     this.props.finishCreateCandidate();
   };
 
+  handlePickedCountry = (country) => {
+    this.setState({
+      pickedCoutry: country
+    })
+  }
 
   onChangeHandler = (value, controlName) => {
     const formControls = { ...this.state.formControls };
@@ -124,6 +129,32 @@ class CandidateCreator extends Component {
 
   renderControls() {
     return Object.keys(this.state.formControls).map((controlName, index) => {
+      if (controlName === "location") {
+        return <div style={{marginBottom: "35px", width: "100%", minWidth: "300px"}}>
+                <CountrySelect 
+                  onPickedCountry={event =>
+                      this.onChangeHandler(event.target.value, controlName)} 
+                  isFullCountryList={true} 
+                  labelName="Country"
+                  placeholder=""
+                />
+              </div>
+      }
+      if (controlName === "description") {
+        return <div className={classes.textAreaContainer}>
+                  <label>Short Description</label>
+                  <textarea 
+                          id="my_description" 
+                          className={classes.textArea}
+                          name="my_description" 
+                          rows="6" 
+                          cols="50"
+                          onChange={event =>
+                            this.onChangeHandler(event.target.value, controlName)
+                          }/>
+
+                </div>
+      }
       const control = this.state.formControls[controlName];
 
       return (

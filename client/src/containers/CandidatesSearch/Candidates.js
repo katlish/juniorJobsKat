@@ -5,11 +5,12 @@ import Loader from "../../components/UI/Loader/Loader";
 import Pagination from '../../components/Pagination/Pagination'
 import CardModalNew from '../../components/UI/CardModal/CardModalNew'
 import Candidate from './Candidate';
+import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
+
 
 import { fetchCandidates } from "../../store/actions/candidate";
 
-const NUM_OF_CANDIDATES_ON_PAGE = 10;
-
+const NUM_OF_CANDIDATES_ON_PAGE = process.env.REACT_APP_NUM_OF_CANDIDATES_ON_PAGE;
 
 class Cnadidates extends Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class Cnadidates extends Component {
       open: false,
       selectedCandidate: {},
       cardModalItem: {},
-      activeStep: 0
+      activeStep: 0,
+      pickedCoutry: null
     };
   }
 
@@ -58,18 +60,62 @@ class Cnadidates extends Component {
     return  sortedCandidates; 
   }
 
+  filterByCountryName = (candidates, country) => {
+    const filteredCandidates = candidates.filter(c => c.location === country);
+    return filteredCandidates;
+  }
+
+  handlePickedCountry = (country) => {
+    this.setState({
+      pickedCoutry: country
+    })
+  }
+
+  onFocus = () => {
+    this.setState({
+      pickedCoutry: ''
+    })
+  }
 
   render() {
     const candidatesArr = this.sortByDateDesc(this.props.candidates);
-    const candidatesOnPage = candidatesArr.slice(this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE , 
-                                  (this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE + NUM_OF_CANDIDATES_ON_PAGE));
+    let candidatesOnPage;
+    let numCandidates;
 
+    if (!this.state.pickedCoutry || this.state.pickedCoutry === "All") {
+      candidatesOnPage = candidatesArr.slice(this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE , 
+        (this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE + NUM_OF_CANDIDATES_ON_PAGE));
+        numCandidates = candidatesArr.length;
+    } else {
+      const filteredCandidates = this.filterByCountryName(this.props.candidates, this.state.pickedCoutry);
+      candidatesOnPage = filteredCandidates.slice(this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE , 
+        (this.state.activeStep * NUM_OF_CANDIDATES_ON_PAGE + NUM_OF_CANDIDATES_ON_PAGE));
+      numCandidates = filteredCandidates.length;
+    }
+   
     return (
             <div className={classes.searchResult}>
+                {/* {console.log("RETURN")} */}
                 {this.props.loading && this.props.candidates.length > 0 ? (
                 <Loader />
               ) : (
                     <div className={classes.itemsContainer}>
+                      <div className={classes.selectCountryList}>
+                        <CountrySelect 
+                          onPickedCountry={event =>
+                            this.handlePickedCountry(event.target.value)} 
+                          isFullCountryList={true}
+                          labelName="Country"
+                          placeholder=""
+                          selectedCountry={this.state.pickedCoutry}
+                          onFocus={this.onFocus}
+                      />
+                      </div>
+                      
+                      <div className={classes.titleNumItemsFound}>
+                          {numCandidates} Junior Software Develpers Found
+                      </div>
+
                       <CardModalNew cardItem={this.state.cardModalItem} handleClose={this.handleClose} open={this.state.open}/>
                           
                       <div className={classes.itemsList}>

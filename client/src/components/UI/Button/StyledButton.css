@@ -2,6 +2,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 36px;
     width: fit-content;
     border-radius: 4px;
@@ -52,3 +53,16 @@
 .StyledButtonLink[disabled] {
     pointer-events: none;
   }
+
+/* Small phones to small tablets: from 460px to 0px*/
+@media only screen and (max-width: 460px) {
+    .StyledButtonDiv {
+        height: 32px;
+        padding: 0px 7px;
+    }
+    .StyledButtonLink {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1px;
+    }
+}  

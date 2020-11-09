@@ -6,7 +6,7 @@ export default class MapOld extends Component {
     super(props);
 
     this.state = {
-      MY_API: "AIzaSyCc3zoz5TZaG3w2oF7IeR-fhxNXi8uywNk",
+      MY_API: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       address: props.address,
       center: {}
     };

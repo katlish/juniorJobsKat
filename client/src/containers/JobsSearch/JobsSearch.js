@@ -4,9 +4,10 @@ import Jobs from './Jobs'
 import CountrySelect from '../../components/UI/CountrySelect/CountrySelect'
 import CustomSwitch from '../../components/UI/Switch/Switch'
 import countriesJson from '../../components/UI/CountrySelect/countries.json'
+import Loader from "../../components/UI/Loader/Loader";
 
-const JOBS_API_URL = '/api/jobs'
-const HASH_FOR_JOBS_IN_GITHUB = 'github'
+const JOBS_API_URL = process.env.REACT_APP_JOBS_API_URL;
+const HASH_FOR_JOBS_IN_GITHUB = process.env.REACT_APP_HASH_FOR_JOBS_IN_GITHUB;
 
 function countriesParser(allJobs) {
   const standartCountries = countriesJson.map(c => c.country);
@@ -19,7 +20,7 @@ function countriesParser(allJobs) {
   
   const locationsWithoutSpecialSymbols = flatLocations.map(l => l.replace(/[()]/g, ""));
   const locationsExistingInCountriesList = [...new Set(locationsWithoutSpecialSymbols.filter(loc => (standartCountries.indexOf(loc)!== -1)))];
-  locationsExistingInCountriesList.push(...["United States","Russian Federation","United Kingdom"]);
+  locationsExistingInCountriesList.push(...["United States","Russian Federation","United Kingdom","All"]);
   locationsExistingInCountriesList.sort();
   return locationsExistingInCountriesList;
 }
@@ -38,10 +39,11 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
   // console.log("inside HOOK with country = ",country)
   // console.log("isRemote",isRemote)
   // console.log("allCountries",allCountries)
-
+  if (!allCountries) return;
+  
   if (isRemote === true) {
     let finallyFilteredCountries = allCountries;
-    if (country !== "all" && country !== null && country !== "") {
+    if (country !== "All" && country !== null && country !== "") {
       finallyFilteredCountries = finallyFilteredCountries.filter(job => job.location.includes(country));
     }
     finallyFilteredCountries = finallyFilteredCountries.filter(job => (job.location.toLowerCase().includes("remote")||job.title.toLowerCase().includes("remote")));
@@ -49,7 +51,7 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
     updateFilteredJobs(finallyFilteredCountries);
   } else {
     let countryToFilter = country;
-    if (countryToFilter === null) {
+    if (countryToFilter === null || countryToFilter === "All") {
       countryToFilter = ''
     }
     const filteredCountries = allCountries.filter(job => job.location.includes(countryToFilter));
@@ -59,7 +61,7 @@ function useUpdateJobsByCountry(updateFilteredJobs, allCountries, country, isRem
 }
 
 function JobsSearch() {
-  const [fullJobList, updateFullList] = React.useState([])
+  const [fullJobList, updateFullList] = React.useState(null)
   const [countriesList, updateCountryList] = React.useState([])
   const [jobsFiltered, updateFilteredJobs] = React.useState([])
   const [pickedCountry, updateCountry] = React.useState(null)
@@ -85,13 +87,23 @@ function JobsSearch() {
   return (
       <div className={classes.ItemsSearch}>
           <div className={classes.selectCountryList}>
-            <CountrySelect onPickedCountry={updateCountry} countriesList={countriesList}/>
+            <CountrySelect 
+              onPickedCountry={event => updateCountry(event.target.value)} 
+              countriesList={countriesList} 
+              isFullCountryList={false}
+              labelName="Country"
+              placeholder=""
+            />
           </div>
           <div className={classes.remoteJobs}>
             <CustomSwitch labelText={"Remote jobs only"} filterByRemote={updateRemote}/>
           </div>
           <div className={classes.searchResult}>
+            {!fullJobList ? 
+            <Loader /> 
+            :
             <Jobs jobs={jobsFiltered}/>
+            }
           </div>
       </div>
   );

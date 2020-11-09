@@ -9,12 +9,11 @@ export function auth(email, password, isLogin) {
       returnSecureToken: true
     };
 
-    let url =
-      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyC6Jfm_l-ADzcOtKUo6QYsbwGF-WvUypwM";
+    let url = process.env.REACT_APP_FIREBASE_SIGN_UP_URL;
+      
 
     if (isLogin) {
-      url =
-        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyC6Jfm_l-ADzcOtKUo6QYsbwGF-WvUypwM";
+      url = process.env.REACT_APP_FIREBASE_LOG_IN_URL;
     }
 
     const response = await axios.post(url, authData);

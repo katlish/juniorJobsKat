@@ -1,12 +1,12 @@
 import React from "react";
 
-const MY_API = "AIzaSyAR9cV4DRwNYqZPuECGw8qCmPVPlEmcjH0";
+const MY_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 
 export default function Map (props) {
   
   const _url = `https://www.google.com/maps/embed/v1/place?key=${
-    MY_API
+    MY_API_KEY
   }&q=${props.address}`;
 
   return <iframe

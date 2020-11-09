@@ -4,7 +4,7 @@ import CardModalNew from '../../components/UI/CardModal/CardModalNew'
 import Pagination from '../../components/Pagination/Pagination'
 import classes from "./ItemsSearch.css";
 
-const NUM_OF_JOBS_ON_PAGE = 20
+const NUM_OF_JOBS_ON_PAGE = process.env.REACT_APP_NUM_OF_JOBS_ON_PAGE;
 
 function sortByDateDesc(jobs) {
     const sortedJobs = jobs.sort(function(job1,job2){

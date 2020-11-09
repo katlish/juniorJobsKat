@@ -18,6 +18,7 @@
     margin: 20px 14px;
 }
 
+
 .socialLinksContainer {
     display: flex;
     flex-direction: row;
@@ -28,4 +29,17 @@
 .socialLinks {
     margin: 0 10px 0 10px;
     text-decoration: none;
+}
+
+/* Small phones to small tablets: from 460px to 0px*/
+@media only screen and (max-width: 460px) {
+    .copyright {
+        font-size: 9px;
+        letter-spacing: 0.2px;
+        line-height: 10px;
+        margin: 0 0 0 10px;
+    }
+    .socialLinks {
+        margin: 10px;
+    }
 }

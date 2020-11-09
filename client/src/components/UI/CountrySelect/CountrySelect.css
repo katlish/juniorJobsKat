@@ -3,19 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    width: 65%;
+    width: 100%;
+    min-width: 300px;
 }
 
-/* Small phones to small tablets: from 625px to 0px*/
-@media only screen and (max-width: 625px) {
-    .CountrySelectContainer {
-        width: 90%;
-    }
-}
+
 
 .CountrySelectInput {
     width: 100%;
-    height: 56px;
+    
+    height: 50px;
     box-sizing: border-box;
     padding: 16px;
     border-radius: 4px;

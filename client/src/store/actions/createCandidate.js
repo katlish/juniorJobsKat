@@ -3,7 +3,8 @@ import {
     RESET_CANDIDATE
   } from "./actionTypes";
   import axios from "../../axios/axios-project-db";
-  
+
+  const CANDIDATES_API_PATH = process.env.REACT_APP_CANDIDATES_API_PATH; 
 
   export function createCandidate(candidate) {
     return {
@@ -21,7 +22,7 @@ import {
   export function finishCreateCandidate() {
     return async (dispatch, getState) => {
         // console.log("in Actions. getState() - ", getState());
-      await axios.post("/candidates.json", getState().createCandidate.candidate);
+      await axios.post(CANDIDATES_API_PATH, getState().createCandidate.candidate);
       dispatch(resetCandidate());
     };
   }

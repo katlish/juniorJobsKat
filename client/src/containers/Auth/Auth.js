@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classes from "./Auth.css";
-import StyledButton from '../../components/UI/Button/StyledButton'
 import Input from "../../components/UI/Input/Input";
+import Button from '../../components/UI/Button/Button';
 import is from "is_js";
 import { connect } from "react-redux";
 import { auth } from "../../store/actions/auth";
@@ -138,22 +138,21 @@ class Auth extends Component {
             {this.renderInputs()}
 
             <div className={classes.buttonsForm}>
-                <StyledButton
-                  onClick={this.loginHandler}
-                  to="/candidatesSearch"
-                  text="LOG IN"
-                  size="big"
-                  disabled={!this.state.isFormValid}
-                />
-
-                <StyledButton
-                  onClick={this.registerHandler}
-                  to="/signUpSuccess"
-                  text="SIGN UP"
-                  size="big"
-                  bgcolor="green"
-                  disabled={!this.state.isFormValid}
-                />
+                <Button 
+                    onClick={this.loginHandler}
+                    disabled={!this.state.isFormValid}
+                    href="/candidatesSearch"
+                >
+                    LOG IN
+                </Button>
+                <Button 
+                    onClick={this.registerHandler}
+                    disabled={!this.state.isFormValid}
+                    href="/signUpSuccess"
+                    bgcolor="green"
+                >
+                    SIGN UP
+                </Button>
             </div>
           </form>
       </div>

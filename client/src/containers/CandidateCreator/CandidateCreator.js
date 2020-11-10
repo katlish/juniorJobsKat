@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./CandidateCreator.css";
-import StyledButton from '../../components/UI/Button/StyledButton';
+import Button from '../../components/UI/Button/Button';
+
 import {
   createControl,
   validate,
@@ -184,13 +185,13 @@ class CandidateCreator extends Component {
           <form onSubmit={this.submitHandler} className={classes.authForm}>
             {this.renderControls()}
 
-            <StyledButton
-                  onClick={this.addCandidateHandler}
-                  to="/candidateSuccess"
-                  text="SUBMIT MY CANDIDATURE"
-                  size="big"
-                  disabled={!this.state.isFormValid}
-            />
+            <Button 
+                    onClick={this.addCandidateHandler}
+                    disabled={!this.state.isFormValid}
+                    href="/candidateSuccess"
+            >
+                SUBMIT MY CANDIDATURE
+            </Button>
           </form>
       </div>
     );

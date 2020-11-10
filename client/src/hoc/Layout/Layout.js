@@ -35,7 +35,7 @@ class Layout extends React.Component {
         
         <NavBar/>
 
-        <main>
+        <main className={classes.main}>
           {this.props.children}
         </main>
         

@@ -1,15 +1,11 @@
 .Layout {
   height: 100vh; /* 100% of screen' heiht */
-  display: flex;
-  flex-direction: column; /* to align all elements of the column */
   background-color: #272727;
 }
 
-.Layout main {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
+.main {
   background-color: #272727;
-  flex: auto;
   padding-top: 65px;
+  height: fit-content;
+  min-height: 100vh;
 }

@@ -15,6 +15,10 @@
   padding: 11px;
 }
 
+.Button.green {
+  background-color: rgb(187 247 117 / 78%);
+}
+
 
 .Button:focus {
   outline: none;

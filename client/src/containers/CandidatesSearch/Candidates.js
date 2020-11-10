@@ -71,11 +71,7 @@ class Cnadidates extends Component {
     })
   }
 
-  onFocus = () => {
-    this.setState({
-      pickedCoutry: ''
-    })
-  }
+  
 
   render() {
     const candidatesArr = this.sortByDateDesc(this.props.candidates);
@@ -107,8 +103,6 @@ class Cnadidates extends Component {
                           isFullCountryList={true}
                           labelName="Country"
                           placeholder=""
-                          selectedCountry={this.state.pickedCoutry}
-                          onFocus={this.onFocus}
                       />
                       </div>
                       

@@ -21,9 +21,7 @@ function CountrySelect(props) {
           placeholder={props.placeholder}  
           name="countries-input" 
           id="countries-input" 
-          value={props.selectedCountry}
           onChange={props.onPickedCountry}
-          onFocus={props.onFocus}
         />
         <datalist 
           id="countries-list" 

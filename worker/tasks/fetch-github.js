@@ -82,7 +82,13 @@ async function fetchGithub() {
             title.includes('sr.') ||
             title.includes('architect') ||
             title.includes('devops') || 
-            title.includes('lead')) {
+            title.includes('lead') ||
+            title.includes('dev ops') ||
+            title.includes('expert') ||
+            title.includes('experienced') ||
+            title.includes('head') ||
+            title.includes('director') ||
+            title.includes('principal')) {
             return false
         } 
         return true
